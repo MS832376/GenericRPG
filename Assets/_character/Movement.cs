@@ -11,15 +11,19 @@ public class Movement : MonoBehaviour
     public float multi = 1.0f;
     public bool combined = false;
     public bool onGround;
+
     void Start(){
         anim = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
     }
-    void OnCollisionStay(){
-        onGround = true;
+    void OnCollisionStay(Collision hitThis){
+        if(hitThis.gameObject.tag == "Ground"){
+            onGround = true;
+        }    
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -123,6 +127,7 @@ public class Movement : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
+            anim.Play("Jump");
             if(multi == 1.0f){
                 rb.AddForce(jump, ForceMode.Impulse);
             }
