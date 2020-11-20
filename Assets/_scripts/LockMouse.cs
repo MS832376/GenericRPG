@@ -9,7 +9,6 @@ public class LockMouse : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 
@@ -20,10 +19,9 @@ public class LockMouse : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        if(Input.GetMouseButtonDown(0)){
+        if(Input.GetMouseButtonUp(0)){
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.lockState = CursorLockMode.Confined;
         }
         
     }
