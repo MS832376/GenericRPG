@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     public Vector3 tryRotate;
     public GameObject sword;
     public GameObject pauseUI;
-    public int myHP;
+    public float myHP;
     //public GameObject DangerSquare;
     public float multi = 1.0f;
     public float userSens = 100.0f;
@@ -28,11 +28,13 @@ public class Movement : MonoBehaviour
 
     void Start(){
         pressedE = false;
-        myHP = 100;
+        myHP = 1.0f;
+        HealthBar.SetHealthBarValue(myHP);
         anim = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
+        userSens = PlayerPrefs.GetFloat("Sensitivity", 100.0f);
         tryRotate = new Vector3(0, userSens*3, 0);
         if(PlayerPrefs.GetInt("Sword") == 1){
             haveSword = true;
@@ -66,10 +68,7 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("Town");
         }
         if(hitThis.gameObject.tag == "TownBad"){
-            if(totalGot == 7){
-                SceneManager.LoadScene("GameOver");
-            }
-            SceneManager.LoadScene("Town"); 
+            SceneManager.LoadScene("GameOver");    
         }
         
         
@@ -77,9 +76,9 @@ public class Movement : MonoBehaviour
     }
     void OnCollisionEnter(Collision hitThis){
         if(hitThis.gameObject.tag == "Zombie"){
-            Debug.Log("HIT ME");
-            myHP -= 20;
-            if(myHP <= 0){
+            myHP -= 0.2f;
+            SoundManagerScript.PlaySound("PlayerHit");
+            if(myHP <= 0.00f){
                 Destroy(this.gameObject);
                 SceneManager.LoadScene("YouDied");
             }
@@ -133,6 +132,18 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if(rb == null){
+            rb = GetComponent<Rigidbody>();
+        }
+        if(PlayerPrefs.GetInt("TotalGot") > 6){
+            PlayerPrefs.SetInt("TotalGot", 0);
+            SceneManager.LoadScene("GameOver");
+        }
+        if(myHP < 0.1f){
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("YouDied");
+        }
+        HealthBar.SetHealthBarValue(myHP);
         if(Input.GetAxis("Mouse X") > 0){
             Quaternion rotate = Quaternion.Euler(tryRotate * Time.deltaTime);
             rb.MoveRotation(rb.rotation * rotate);

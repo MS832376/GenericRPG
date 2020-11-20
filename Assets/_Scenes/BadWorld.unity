@@ -2995,7 +2995,7 @@ PrefabInstance:
     - target: {fileID: 1989792786271011774, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: thePlayer
       value: 
-      objectReference: {fileID: 1170852438}
+      objectReference: {fileID: 0}
     - target: {fileID: 1989792786271011775, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4666,6 +4666,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 891690074529185834, guid: a9226e387f9befb4fbe2a42acd683be3, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1170852442}
+    - target: {fileID: 891690074529185834, guid: a9226e387f9befb4fbe2a42acd683be3, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 700041850}
@@ -5394,9 +5398,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8251031077473238453, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
   m_PrefabInstance: {fileID: 454430695}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1170852438 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 44616757785158604, guid: a9226e387f9befb4fbe2a42acd683be3, type: 3}
+--- !u!54 &1170852442 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 891690074529185828, guid: a9226e387f9befb4fbe2a42acd683be3, type: 3}
   m_PrefabInstance: {fileID: 832408327}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1170852443 stripped

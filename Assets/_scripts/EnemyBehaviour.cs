@@ -17,9 +17,10 @@ public class EnemyBehaviour : MonoBehaviour
         health = 100;        
     }
     void OnTriggerEnter(Collider hitThis){
-        Debug.Log("GotHit");
+
         if(hitThis.gameObject.tag == "DANGER"){
             health -= 50;
+            SoundManagerScript.PlaySound("ZombieHit");
         }
         if(health <= 0){
             anim.Play("death1");
