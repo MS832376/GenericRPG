@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
 
     void Start(){
         pressedE = false;
+        Cursor.lockState = CursorLockMode.Locked;
         myHP = 1.0f;
         HealthBar.SetHealthBarValue(myHP);
         anim = gameObject.GetComponent<Animator>();
