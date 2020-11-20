@@ -10,6 +10,7 @@ public class LockMouse : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -17,6 +18,13 @@ public class LockMouse : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Escape)){
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
+        if(Input.GetMouseButtonDown(0)){
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        
     }
 }
