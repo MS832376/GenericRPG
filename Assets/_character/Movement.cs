@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 
     public bool onGround;
     public bool attack;
+    public bool STOPEVERYTHING;
 
     void Start(){
         anim = gameObject.GetComponent<Animator>();
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
             gotSword = 0;
         }
         attack = false;
+        STOPEVERYTHING = false;
     }
     void OnCollisionStay(Collision hitThis){
         if(hitThis.gameObject.tag == "Ground"){
@@ -88,11 +90,18 @@ public class Movement : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.E)){
             anim.Play("Attack1");
+            STOPEVERYTHING = true;
+            StartCoroutine(PleaseAttack());
         }
     }
+    IEnumerator PleaseAttack(){
+        yield return new WaitForSeconds(1);
+        STOPEVERYTHING = false;
+        yield break;
+    }
     void FixedUpdate(){
-        
-        if(Input.GetKey(KeyCode.W)){
+        if(!STOPEVERYTHING){
+            if(Input.GetKey(KeyCode.W)){
             if(multi == 1.0f && !combined){
                 anim.Play("Walking");
             }
@@ -190,6 +199,8 @@ public class Movement : MonoBehaviour
         }else{
             anim.Play("Idle");
         }
+        }
+        
         
         
         /*if(Input.GetKey(KeyCode.Space) && onGround){
