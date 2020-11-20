@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public Vector3 bigJump;
     public Vector3 tryRotate;
     public GameObject sword;
+    public int myHP;
+    //public GameObject DangerSquare;
     public float multi = 1.0f;
     public float userSens = 100.0f;
     public bool combined = false;
@@ -20,8 +22,10 @@ public class Movement : MonoBehaviour
     public bool onGround;
     public bool attack;
     public bool STOPEVERYTHING;
+    public static int totalGot;
 
     void Start(){
+        myHP = 100;
         anim = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
@@ -43,18 +47,30 @@ public class Movement : MonoBehaviour
             onGround = true;
         }
         if(hitThis.gameObject.tag == "SwordDoor"){
-            SceneManager.LoadScene("GetTheSword");
             PlayerPrefs.SetInt("CameFrom", 1);
+            SceneManager.LoadScene("GetTheSword"); 
         }
         if(hitThis.gameObject.tag == "BadDoor"){
-            SceneManager.LoadScene("BadWorld");
             PlayerPrefs.SetInt("CameFrom", 2);
+            PlayerPrefs.SetInt("TotalGot", 0);
+            SceneManager.LoadScene("BadWorld");
         }
         if(hitThis.gameObject.tag == "TownWoods"){
             SceneManager.LoadScene("Town");
         }
         if(hitThis.gameObject.tag == "TownBad"){
             SceneManager.LoadScene("Town");
+        }
+        
+        
+    }
+    void OnCollisionEnter(Collision hitThis){
+        if(hitThis.gameObject.tag == "Zombie"){
+            Debug.Log("HIT ME");
+            myHP -= 20;
+            if(myHP <= 0){
+                Destroy(this.gameObject);
+            }
         }
     }
     void OnTriggerEnter(Collider hitThis){
@@ -64,6 +80,7 @@ public class Movement : MonoBehaviour
             PlayerPrefs.SetInt("Sword", 1);
             SceneManager.LoadScene("SwordCutscene"); 
         }
+        
     }
 
     // Update is called once per frame
@@ -88,15 +105,17 @@ public class Movement : MonoBehaviour
                 sword.SetActive(true);
             }
         }
-        if(Input.GetKey(KeyCode.E)){
+        if(Input.GetMouseButton(0) && gotSword == 1){
             anim.Play("Attack1");
             STOPEVERYTHING = true;
+            //DangerSquare.SetActive(true);
             StartCoroutine(PleaseAttack());
         }
     }
     IEnumerator PleaseAttack(){
         yield return new WaitForSeconds(1);
         STOPEVERYTHING = false;
+        //DangerSquare.SetActive(false);
         yield break;
     }
     void FixedUpdate(){

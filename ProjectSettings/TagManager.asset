@@ -19,6 +19,8 @@ TagManager:
   - BadDoor
   - TownBad
   - Enemy
+  - DANGER
+  - Zombie
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,24 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject thePlayer;
     public Transform playerTran;
     float dist;
-    public static int health;
+    private int health;
     // Start is called before the first frame update
     void Start()
     {
         health = 100;        
+    }
+    void OnTriggerEnter(Collider hitThis){
+        Debug.Log("GotHit");
+        if(hitThis.gameObject.tag == "DANGER"){
+            health -= 50;
+        }
+        if(health <= 0){
+            anim.Play("death1");
+            Destroy(this.gameObject);
+            Movement.totalGot += 1;
+            PlayerPrefs.SetInt("TotalGot", Movement.totalGot);
+            Debug.Log(Movement.totalGot);
+        }
     }
     void GetPlayer(){
         thePlayer = GameObject.FindGameObjectWithTag("Player");
@@ -27,13 +40,15 @@ public class EnemyBehaviour : MonoBehaviour
                 anim.Play("walk");
                 transform.LookAt(playerTran);
                 transform.position += transform.forward * Time.deltaTime;
+            }else if(dist <= 3){
+                anim.Play("attack1");   
+            }else{
+                anim.Play("idle");
             }
         }else{
             Invoke("GetPlayer",1);
         }
-        if(health <= 0){
-            Destroy(this);
-        }
+        
         
     }
 }
