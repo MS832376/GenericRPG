@@ -10,14 +10,15 @@ TagManager:
   - Careful
   - SwordDoor
   - Blocked
-  - WolfDoor
   - NPC2
   - TownWoods
-  - TownWolves
   - grabsword
   - walk
   - SwordScene
   - Sword
+  - BadDoor
+  - TownBad
+  - Enemy
   layers:
   - Default
   - TransparentFX

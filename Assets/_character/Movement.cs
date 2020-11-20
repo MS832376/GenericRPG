@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     public int gotSword;
 
     public bool onGround;
+    public bool attack;
 
     void Start(){
         anim = gameObject.GetComponent<Animator>();
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
             haveSword = false;
             gotSword = 0;
         }
+        attack = false;
     }
     void OnCollisionStay(Collision hitThis){
         if(hitThis.gameObject.tag == "Ground"){
@@ -42,17 +44,15 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("GetTheSword");
             PlayerPrefs.SetInt("CameFrom", 1);
         }
-        if(hitThis.gameObject.tag == "WolfDoor"){
-            SceneManager.LoadScene("GetTheSword");
+        if(hitThis.gameObject.tag == "BadDoor"){
+            SceneManager.LoadScene("BadWorld");
             PlayerPrefs.SetInt("CameFrom", 2);
         }
         if(hitThis.gameObject.tag == "TownWoods"){
             SceneManager.LoadScene("Town");
-            PlayerPrefs.SetInt("CameFrom", 1);
         }
         if(hitThis.gameObject.tag == "TownBad"){
             SceneManager.LoadScene("Town");
-            PlayerPrefs.SetInt("CameFrom", 2);
         }
     }
     void OnTriggerEnter(Collider hitThis){
@@ -85,6 +85,9 @@ public class Movement : MonoBehaviour
             }else{
                 sword.SetActive(true);
             }
+        }
+        if(Input.GetKey(KeyCode.E)){
+            anim.Play("Attack1");
         }
     }
     void FixedUpdate(){
@@ -187,6 +190,7 @@ public class Movement : MonoBehaviour
         }else{
             anim.Play("Idle");
         }
+        
         
         /*if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
