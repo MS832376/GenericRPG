@@ -159,7 +159,7 @@ public class Movement : MonoBehaviour
             anim.Play("Idle");
         }
         
-        if(Input.GetKey(KeyCode.Space) && onGround){
+        /*if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
             if(multi == 1.0f){
                 rb.velocity += jump;
@@ -168,6 +168,6 @@ public class Movement : MonoBehaviour
                 rb.AddForce(bigJump,ForceMode.Impulse);
             }
             
-        }
+        }*/
     }
 }
