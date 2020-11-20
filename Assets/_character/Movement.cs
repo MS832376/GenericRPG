@@ -28,9 +28,22 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
+    void Update(){
+        if(Input.GetAxis("Mouse X") > 0){
+            Quaternion rotate = Quaternion.Euler(tryRotate * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * rotate);
+        }
+        if(Input.GetAxis("Mouse X") < 0){
+            Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * rotate);
+        }
+        if(Input.GetKey(KeyCode.LeftShift)){
+            multi = 3.0f;
+        }else{
+            multi = 1.0f;
+        }
+    }
+    void FixedUpdate(){
         if(Input.GetKey(KeyCode.W)){
             if(multi == 1.0f && !combined){
                 anim.Play("Walking");
@@ -128,14 +141,7 @@ public class Movement : MonoBehaviour
         }else{
             anim.Play("Idle");
         }
-        if(Input.GetAxis("Mouse X") > 0){
-            Quaternion rotate = Quaternion.Euler(tryRotate * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * rotate);
-        }
-        if(Input.GetAxis("Mouse X") < 0){
-            Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * rotate);
-        }
+        
         if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
             if(multi == 1.0f){
@@ -145,11 +151,6 @@ public class Movement : MonoBehaviour
                 rb.AddForce(bigJump, ForceMode.Impulse);
             }
             
-        }
-        if(Input.GetKey(KeyCode.LeftShift)){
-            multi = 3.0f;
-        }else{
-            multi = 1.0f;
         }
     }
 }

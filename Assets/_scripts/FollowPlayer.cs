@@ -20,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
         playerPos = thePlayer.transform.position;
         playerRot = thePlayer.transform.rotation;
     }
-    void LateUpdate(){
+    void FixedUpdate(){
         if(playerPos != null){
             myCamera.transform.rotation = playerRot;
             myCamera.transform.position = playerRot * new Vector3(0.0f,2.0f,-2.0f) + playerPos;

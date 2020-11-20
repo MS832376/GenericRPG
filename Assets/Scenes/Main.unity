@@ -363,7 +363,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &658266708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -649,9 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   north: {x: 0, y: 0, z: 0}
   player: {fileID: 2066288805}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
   northLayer: {fileID: 1720408368}
-  missionLayer: {fileID: 0}
 --- !u!1 &997261065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1139,7 @@ GameObject:
   - component: {fileID: 1720408370}
   - component: {fileID: 1720408369}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Needle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1280,7 +1278,7 @@ MonoBehaviour:
   bigJump: {x: 0, y: 0, z: 0}
   tryRotate: {x: 0, y: 0, z: 0}
   multi: 1
-  userSens: 30
+  userSens: 100
   combined: 0
   onGround: 0
 --- !u!1 &2094069221 stripped
@@ -1396,6 +1394,10 @@ PrefabInstance:
     - target: {fileID: 2097119009687681795, guid: ab485b2d4c520a049be503d4d4557650, type: 3}
       propertyPath: m_Name
       value: Compass
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097119010237938561, guid: ab485b2d4c520a049be503d4d4557650, type: 3}
+      propertyPath: m_Name
+      value: Needle
       objectReference: {fileID: 0}
     - target: {fileID: 2097119010237938590, guid: ab485b2d4c520a049be503d4d4557650, type: 3}
       propertyPath: m_SizeDelta.x
