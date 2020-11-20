@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SensControl : MonoBehaviour
 {
+    public GameObject sensUI;
     Text showText;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class SensControl : MonoBehaviour
         PlayerPrefs.SetFloat("Sensitivity", value);
         showText.text = value + " sens";
     }
-    public void changeScene(string scene){
-        SceneManager.LoadScene(scene);
+    public void changeScene(){
+        sensUI.SetActive(false);
     }
 }
