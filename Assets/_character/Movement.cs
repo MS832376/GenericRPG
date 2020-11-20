@@ -8,7 +8,9 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public Vector3 jump;
     public Vector3 bigJump;
+    public Vector3 tryRotate;
     public float multi = 1.0f;
+    public float userSens = 100.0f;
     public bool combined = false;
     public bool onGround;
 
@@ -17,6 +19,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
+        tryRotate = new Vector3(0, userSens*3, 0);
     }
     void OnCollisionStay(Collision hitThis){
         if(hitThis.gameObject.tag == "Ground"){
@@ -125,9 +128,16 @@ public class Movement : MonoBehaviour
         }else{
             anim.Play("Idle");
         }
+        if(Input.GetAxis("Mouse X") > 0){
+            Quaternion rotate = Quaternion.Euler(tryRotate * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * rotate);
+        }
+        if(Input.GetAxis("Mouse X") < 0){
+            Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * rotate);
+        }
         if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
-            anim.Play("Jump");
             if(multi == 1.0f){
                 rb.AddForce(jump, ForceMode.Impulse);
             }
