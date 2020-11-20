@@ -12,6 +12,8 @@ TagManager:
   - Blocked
   - WolfDoor
   - NPC2
+  - TownWoods
+  - TownWolves
   layers:
   - Default
   - TransparentFX

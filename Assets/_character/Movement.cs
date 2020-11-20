@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -26,6 +27,20 @@ public class Movement : MonoBehaviour
         if(hitThis.gameObject.tag == "Ground"){
             onGround = true;
         }
+        if(hitThis.gameObject.tag == "SwordDoor"){
+            SceneManager.LoadScene("GetTheSword");
+            PlayerPrefs.SetInt("CameFrom", 1);
+        }
+        if(hitThis.gameObject.tag == "WolfDoor"){
+            SceneManager.LoadScene("GetTheSword");
+            PlayerPrefs.SetInt("CameFrom", 2);
+        }
+        if(hitThis.gameObject.tag == "TownWoods"){
+            SceneManager.LoadScene("Town");
+        }
+        if(hitThis.gameObject.tag == "TownBad"){
+            SceneManager.LoadScene("Town");
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +54,7 @@ public class Movement : MonoBehaviour
             rb.MoveRotation(rb.rotation * rotate);
         }
         if(Input.GetKey(KeyCode.LeftShift)){
-            multi = 3.0f;
+            multi = 4.0f;
         }else{
             multi = 1.0f;
         }
