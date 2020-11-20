@@ -173,7 +173,7 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             pressedE = true;
         }
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Space)){
             pauseUI.SetActive(true);
             Time.timeScale = 0.0f; 
             
