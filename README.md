@@ -51,4 +51,4 @@ for damage.
 One playtester said I should add healthbars for the zombies, but I'm really not a fan of that. I'm more of an oldschool guy in the sense that sometimes you just gotta
 outlive the enemies. Marathons don't get any easier knowing you're on mile 16 out of 26, so I just let it rock and gave a hint through NPC communication.
 
-Can't think of the rest, should've kept this updated better during the project.
+Can't think of the rest, should've kept this updated better during the project. Stayed up for a while and skipped a few meals putting finishing touches on this, and now it is time to sleep.
