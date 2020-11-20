@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Wall
+  - NPC
+  - Careful
+  - SwordDoor
+  - Blocked
+  - WolfDoor
+  - NPC2
   layers:
   - Default
   - TransparentFX

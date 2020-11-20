@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float multi = 1.0f;
     public float userSens = 100.0f;
     public bool combined = false;
+
     public bool onGround;
 
     void Start(){
@@ -24,7 +25,7 @@ public class Movement : MonoBehaviour
     void OnCollisionStay(Collision hitThis){
         if(hitThis.gameObject.tag == "Ground"){
             onGround = true;
-        }    
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +52,7 @@ public class Movement : MonoBehaviour
             if(multi > 1.0f && !combined){
                 anim.Play("Running");
             }
-            transform.Translate(Vector3.forward * Time.deltaTime * multi);
+            rb.velocity = (transform.forward * multi);
             if(Input.GetKey(KeyCode.D)){
                 combined = true;
                 if(multi == 1.0f){
@@ -60,7 +61,7 @@ public class Movement : MonoBehaviour
                 if(multi > 1){
                     anim.Play("RunningRF");
                 }
-                transform.Translate(Vector3.right * Time.deltaTime * multi);
+                rb.velocity += (transform.right * multi);
             }else if(Input.GetKey(KeyCode.A)){
                 combined = true;
                 if(multi == 1.0f){
@@ -69,10 +70,11 @@ public class Movement : MonoBehaviour
                 if(multi > 1){
                     anim.Play("RunningLF");
                 }
-                transform.Translate(Vector3.left * Time.deltaTime * multi);
+                rb.velocity += (-transform.right * multi);
             }else if(Input.GetKey(KeyCode.S)){
                 anim.Play("Idle");
-                transform.Translate(Vector3.back * Time.deltaTime * multi);
+                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
+                
             }else{
                 combined = false;
             }
@@ -83,7 +85,7 @@ public class Movement : MonoBehaviour
             if(multi > 1 && !combined){
                 anim.Play("RunningBack");
             }
-            transform.Translate(Vector3.back * Time.deltaTime * multi);
+            rb.velocity = (-transform.forward * multi);
             if(Input.GetKey(KeyCode.D)){
                 combined = true;
                 if(multi == 1.0f){
@@ -92,7 +94,7 @@ public class Movement : MonoBehaviour
                 if(multi > 1){
                     anim.Play("RunningRB");
                 }
-                transform.Translate(Vector3.right * Time.deltaTime * multi);
+                rb.velocity += (transform.right * multi);
             }else if(Input.GetKey(KeyCode.A)){
                 combined = true;
                 if(multi == 1.0f){
@@ -101,10 +103,10 @@ public class Movement : MonoBehaviour
                 if(multi > 1){
                     anim.Play("RunningLB");
                 }
-                transform.Translate(Vector3.left * Time.deltaTime * multi);
+                rb.velocity += (-transform.right * multi);
             }else if(Input.GetKey(KeyCode.W)){
                 anim.Play("Idle");
-                transform.Translate(Vector3.forward * Time.deltaTime * multi);
+                rb.velocity = new Vector3(0.0f,0.0f,0.0f);  
             }else{
                 combined = false;
             }
@@ -115,11 +117,11 @@ public class Movement : MonoBehaviour
             if(multi > 1 && !combined){
                 anim.Play("RunningRight");
             }
-            transform.Translate(Vector3.right * Time.deltaTime * multi);
+            rb.velocity = (transform.right * multi);
             if(Input.GetKey(KeyCode.A)){
                 combined = true;
                 anim.Play("Idle");
-                transform.Translate(Vector3.left * Time.deltaTime * multi);
+                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
             }else{
                 combined = false;
             }
@@ -130,11 +132,11 @@ public class Movement : MonoBehaviour
             if(multi > 1 && !combined){
                 anim.Play("RunningLeft");
             }
-            transform.Translate(Vector3.left * Time.deltaTime * multi);
+            rb.velocity = (-transform.right * multi);
             if(Input.GetKey(KeyCode.D)){
                 combined = true;
                 anim.Play("Idle");
-                transform.Translate(Vector3.right * Time.deltaTime * multi);
+                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
             }else{
                 combined = false;
             }
@@ -145,10 +147,10 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
             if(multi == 1.0f){
-                rb.AddForce(jump, ForceMode.Impulse);
+                rb.velocity += jump;
             }
             if(multi > 1){
-                rb.AddForce(bigJump, ForceMode.Impulse);
+                rb.AddForce(bigJump,ForceMode.Impulse);
             }
             
         }
