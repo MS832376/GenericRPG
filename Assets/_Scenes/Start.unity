@@ -1629,6 +1629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5233831722191402449, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5233831722191402451, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}
       propertyPath: m_Text
       value: "Required Peripherals:\n1. Mouse(or Trackpad) +Keyboard\n2. Speakers
@@ -1746,7 +1750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5233831723624273087, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}

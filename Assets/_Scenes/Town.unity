@@ -2552,14 +2552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 581221916652705633, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 581221916652705633, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1803020903656061392, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2707,22 +2699,6 @@ PrefabInstance:
     - target: {fileID: 4415133559408234346, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6157890657988370070, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 6157890657988370070, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042615453382832754, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042615453382832754, guid: ef2578018a95c41478733ad944716f0c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8574207738436229567, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: m_LocalScale.x
