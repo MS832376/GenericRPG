@@ -10,9 +10,12 @@ public class Movement : MonoBehaviour
     public Vector3 jump;
     public Vector3 bigJump;
     public Vector3 tryRotate;
+    public GameObject sword;
     public float multi = 1.0f;
     public float userSens = 100.0f;
     public bool combined = false;
+    public bool haveSword;
+    public int gotSword;
 
     public bool onGround;
 
@@ -22,6 +25,14 @@ public class Movement : MonoBehaviour
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
         tryRotate = new Vector3(0, userSens*3, 0);
+        if(PlayerPrefs.GetInt("Sword") == 1){
+            haveSword = true;
+            sword.SetActive(true);
+            gotSword = 1;
+        }else{
+            haveSword = false;
+            gotSword = 0;
+        }
     }
     void OnCollisionStay(Collision hitThis){
         if(hitThis.gameObject.tag == "Ground"){
@@ -37,9 +48,19 @@ public class Movement : MonoBehaviour
         }
         if(hitThis.gameObject.tag == "TownWoods"){
             SceneManager.LoadScene("Town");
+            PlayerPrefs.SetInt("CameFrom", 1);
         }
         if(hitThis.gameObject.tag == "TownBad"){
             SceneManager.LoadScene("Town");
+            PlayerPrefs.SetInt("CameFrom", 2);
+        }
+    }
+    void OnTriggerEnter(Collider hitThis){
+        if(hitThis.gameObject.tag == "SwordScene" && !haveSword){
+            PlayerPrefs.SetInt("Scene", 1);
+            haveSword = true;
+            PlayerPrefs.SetInt("Sword", 1);
+            SceneManager.LoadScene("SwordCutscene"); 
         }
     }
 
@@ -58,8 +79,16 @@ public class Movement : MonoBehaviour
         }else{
             multi = 1.0f;
         }
+        if(Input.GetKeyDown(KeyCode.Tab) && gotSword == 1){
+            if(sword.activeSelf == true){
+                sword.SetActive(false);
+            }else{
+                sword.SetActive(true);
+            }
+        }
     }
     void FixedUpdate(){
+        
         if(Input.GetKey(KeyCode.W)){
             if(multi == 1.0f && !combined){
                 anim.Play("Walking");

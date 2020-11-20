@@ -14,6 +14,10 @@ TagManager:
   - NPC2
   - TownWoods
   - TownWolves
+  - grabsword
+  - walk
+  - SwordScene
+  - Sword
   layers:
   - Default
   - TransparentFX
