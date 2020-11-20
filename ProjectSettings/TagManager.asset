@@ -21,6 +21,7 @@ TagManager:
   - Enemy
   - DANGER
   - Zombie
+  - SwordStory
   layers:
   - Default
   - TransparentFX

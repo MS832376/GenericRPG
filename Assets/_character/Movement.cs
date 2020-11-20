@@ -23,8 +23,10 @@ public class Movement : MonoBehaviour
     public bool attack;
     public bool STOPEVERYTHING;
     public static int totalGot;
+    public bool pressedE;
 
     void Start(){
+        pressedE = false;
         myHP = 100;
         anim = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -38,6 +40,7 @@ public class Movement : MonoBehaviour
         }else{
             haveSword = false;
             gotSword = 0;
+            sword.SetActive(false);
         }
         attack = false;
         STOPEVERYTHING = false;
@@ -50,17 +53,24 @@ public class Movement : MonoBehaviour
             PlayerPrefs.SetInt("CameFrom", 1);
             SceneManager.LoadScene("GetTheSword"); 
         }
-        if(hitThis.gameObject.tag == "BadDoor"){
+        if(hitThis.gameObject.tag == "BadDoor" && gotSword == 1){
             PlayerPrefs.SetInt("CameFrom", 2);
             PlayerPrefs.SetInt("TotalGot", 0);
             SceneManager.LoadScene("BadWorld");
+        }
+        if(hitThis.gameObject.tag == "BadDoor" && gotSword != 1){
+
         }
         if(hitThis.gameObject.tag == "TownWoods"){
             SceneManager.LoadScene("Town");
         }
         if(hitThis.gameObject.tag == "TownBad"){
-            SceneManager.LoadScene("Town");
+            if(totalGot == 7){
+                SceneManager.LoadScene("GameOver");
+            }
+            SceneManager.LoadScene("Town"); 
         }
+        
         
         
     }
@@ -70,8 +80,10 @@ public class Movement : MonoBehaviour
             myHP -= 20;
             if(myHP <= 0){
                 Destroy(this.gameObject);
+                SceneManager.LoadScene("YouDied");
             }
         }
+        
     }
     void OnTriggerEnter(Collider hitThis){
         if(hitThis.gameObject.tag == "SwordScene" && !haveSword){
@@ -81,6 +93,41 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("SwordCutscene"); 
         }
         
+    }
+
+    void OnTriggerStay(Collider hitThis){
+        if(hitThis.gameObject.tag == "NPC2"){
+            if(pressedE){
+                pressedE = false;
+                SoundManagerScript.PlaySound("TheDumps");
+            }
+        }
+        if(hitThis.gameObject.tag == "NPC"){
+            if(pressedE){
+                pressedE = false;
+                SoundManagerScript.PlaySound("whinykid");
+            }
+        }
+        if(hitThis.gameObject.tag == "SwordStory"){
+            if(pressedE){
+                pressedE = false;
+                if(gotSword != 1){
+                    SoundManagerScript.PlaySound("SwordMyth");
+                }else{
+                    SoundManagerScript.PlaySound("FoundSword");
+                }   
+            }      
+        }
+        if(hitThis.gameObject.tag == "Careful"){
+            if(pressedE){
+                pressedE = false;
+                if(gotSword != 1){
+                    SoundManagerScript.PlaySound("Warning");
+                }else{
+                    SoundManagerScript.PlaySound("DesertTime");
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -110,6 +157,9 @@ public class Movement : MonoBehaviour
             STOPEVERYTHING = true;
             //DangerSquare.SetActive(true);
             StartCoroutine(PleaseAttack());
+        }
+        if(Input.GetKeyDown(KeyCode.E)){
+            pressedE = true;
         }
     }
     IEnumerator PleaseAttack(){

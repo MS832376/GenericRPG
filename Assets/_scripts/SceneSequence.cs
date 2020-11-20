@@ -35,7 +35,7 @@ public class SceneSequence : MonoBehaviour
         cam1.SetActive(false);
         run = false;
         walk = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         walk = false;
         grabSword = true;
         cam3.SetActive(true);
@@ -63,7 +63,7 @@ public class SceneSequence : MonoBehaviour
     {
         if(run){
             anim.Play("Running");
-            person.transform.Translate(Vector3.forward * Time.deltaTime * 4);
+            person.transform.Translate(Vector3.forward * Time.deltaTime * 3.5f);
         }
         if(walk){
             //cam2.SetActive(true);

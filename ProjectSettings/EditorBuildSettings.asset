@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/Start.unity
+    guid: 5c5dafe8571ea144082b24cde8048ee9
+  - enabled: 1
+    path: Assets/_Scenes/Instructions.unity
+    guid: 06994bd06a909054d9013cb3fe0a0760
+  - enabled: 1
     path: Assets/_Scenes/Town.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -17,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/BadWorld.unity
     guid: d285900007fb25a488e5bea7a7d700c6
+  - enabled: 1
+    path: Assets/_Scenes/YouDied.unity
+    guid: a5598e40d0da8ae4c9cb1bc4a625a0c3
+  - enabled: 1
+    path: Assets/_Scenes/GameOver.unity
+    guid: 6e009af65b57ec742bffcf70299236f3
   m_configObjects: {}

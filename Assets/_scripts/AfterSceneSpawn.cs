@@ -12,7 +12,7 @@ public class AfterSceneSpawn : MonoBehaviour
     {   
         spawnSpot = PlayerPrefs.GetInt("Scene");
         if(spawnSpot == 1){
-            player.transform.position = new Vector3(-12.0f, 0.0f, -19.0f);
+            player.transform.position = new Vector3(-7.0f, 0.0f, -35.0f);
             PlayerPrefs.SetInt("Sword", 1);
             PlayerPrefs.SetInt("Scene", 0);
         }
