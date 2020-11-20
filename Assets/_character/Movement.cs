@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public Vector3 bigJump;
     public Vector3 tryRotate;
     public GameObject sword;
+    public GameObject pauseUI;
     public int myHP;
     //public GameObject DangerSquare;
     public float multi = 1.0f;
@@ -160,6 +161,11 @@ public class Movement : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E)){
             pressedE = true;
+        }
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            pauseUI.SetActive(true);
+            Time.timeScale = 0.0f; 
+            
         }
     }
     IEnumerator PleaseAttack(){
