@@ -31,7 +31,7 @@ public class SoundManagerScript : MonoBehaviour
             theNoise.PlayOneShot(Warning, 3.0f);
             break;
         case "SwordMyth":
-            theNoise.PlayOneShot(SwordMyth, 3.0f);
+            theNoise.PlayOneShot(SwordMyth, 5.0f);
             break;
         case "whinykid":
             theNoise.PlayOneShot(whinykid, 3.0f);

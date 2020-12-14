@@ -23,10 +23,14 @@ public class LockMouse : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        if(Input.GetMouseButtonUp(0)){
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        //if(Input.GetMouseButtonUp(0)){
+        //    Cursor.visible = false;
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
         
+    }
+    public void relockMouse(){
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

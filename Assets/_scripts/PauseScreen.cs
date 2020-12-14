@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseScreen : MonoBehaviour
 {
     public GameObject pauseUI;
+    public GameObject controlUI;
     public void ResumeGame()
     {
         pauseUI.SetActive(false);
@@ -23,5 +24,11 @@ public class PauseScreen : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(scene);
+    }
+    public void viewControl(){
+        controlUI.SetActive(true);
+    }
+    public void stopControl(){
+        controlUI.SetActive(false);
     }
 }

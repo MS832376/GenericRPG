@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -174,7 +174,7 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             pressedE = true;
         }
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Escape)){
             pauseUI.SetActive(true);
             Time.timeScale = 0.0f; 
             
@@ -293,10 +293,10 @@ public class Movement : MonoBehaviour
         /*if(Input.GetKey(KeyCode.Space) && onGround){
             onGround = false;
             if(multi == 1.0f){
-                rb.velocity += jump;
+                rb.velocity += transform.up * multi;
             }
             if(multi > 1){
-                rb.AddForce(bigJump,ForceMode.Impulse);
+                rb.velocity += transform.up * 9.0f;
             }
             
         }*/
