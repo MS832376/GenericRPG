@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public bool attack;
     public bool STOPEVERYTHING;
     public static int totalGot;
+    public static bool changeSens;
     public bool pressedE;
 
     void Start(){
@@ -156,7 +157,7 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift)){
             multi = 4.0f;
         }else{
-            multi = 1.0f;
+            multi = 2.0f;
         }
         if(Input.GetKeyDown(KeyCode.Tab) && gotSword == 1){
             if(sword.activeSelf == true){
@@ -179,6 +180,17 @@ public class Movement : MonoBehaviour
             Time.timeScale = 0.0f; 
             
         }
+        if(Input.GetKeyDown(KeyCode.Space) && onGround){
+            onGround = false;
+            if(multi == 2){
+                rb.AddForce(transform.up * (multi*2.5f), ForceMode.Impulse);
+            }else{
+                rb.AddForce(transform.up * (multi*1.25f), ForceMode.Impulse);
+            }
+            anim.Play("Jump");
+            STOPEVERYTHING = true;
+            StartCoroutine(PleaseJump());
+        }
     }
     IEnumerator PleaseAttack(){
         yield return new WaitForSeconds(1);
@@ -186,31 +198,36 @@ public class Movement : MonoBehaviour
         //DangerSquare.SetActive(false);
         yield break;
     }
+    IEnumerator PleaseJump(){
+        yield return new WaitForSeconds(1);
+        STOPEVERYTHING = false;
+        yield break;
+    }
     void FixedUpdate(){
         if(!STOPEVERYTHING){
             if(Input.GetKey(KeyCode.W)){
-            if(multi == 1.0f && !combined){
+            if(multi == 2.0f && !combined){
                 anim.Play("Walking");
             }
-            if(multi > 1.0f && !combined){
+            if(multi > 2.0f && !combined){
                 anim.Play("Running");
             }
             rb.velocity = (transform.forward * multi);
             if(Input.GetKey(KeyCode.D)){
                 combined = true;
-                if(multi == 1.0f){
+                if(multi == 2.0f){
                     anim.Play("WalkingRF");
                 }
-                if(multi > 1){
+                if(multi > 2){
                     anim.Play("RunningRF");
                 }
                 rb.velocity += (transform.right * multi);
             }else if(Input.GetKey(KeyCode.A)){
                 combined = true;
-                if(multi == 1.0f){
+                if(multi == 2.0f){
                     anim.Play("WalkingLF");
                 }
-                if(multi > 1){
+                if(multi > 2){
                     anim.Play("RunningLF");
                 }
                 rb.velocity += (-transform.right * multi);
@@ -222,28 +239,28 @@ public class Movement : MonoBehaviour
                 combined = false;
             }
         }else if(Input.GetKey(KeyCode.S)){
-            if(multi == 1 && !combined){
+            if(multi == 2 && !combined){
                 anim.Play("WalkingBack");
             }
-            if(multi > 1 && !combined){
+            if(multi > 2 && !combined){
                 anim.Play("RunningBack");
             }
             rb.velocity = (-transform.forward * multi);
             if(Input.GetKey(KeyCode.D)){
                 combined = true;
-                if(multi == 1.0f){
+                if(multi == 2.0f){
                     anim.Play("WalkingRB");
                 }
-                if(multi > 1){
+                if(multi > 2){
                     anim.Play("RunningRB");
                 }
                 rb.velocity += (transform.right * multi);
             }else if(Input.GetKey(KeyCode.A)){
                 combined = true;
-                if(multi == 1.0f){
+                if(multi == 2.0f){
                     anim.Play("WalkingLB");
                 }
-                if(multi > 1){
+                if(multi > 2){
                     anim.Play("RunningLB");
                 }
                 rb.velocity += (-transform.right * multi);
@@ -254,10 +271,10 @@ public class Movement : MonoBehaviour
                 combined = false;
             }
         }else if(Input.GetKey(KeyCode.D)){
-            if(multi == 1.0f && !combined){
+            if(multi == 2.0f && !combined){
                 anim.Play("WalkingRight");
             }
-            if(multi > 1 && !combined){
+            if(multi > 2 && !combined){
                 anim.Play("RunningRight");
             }
             rb.velocity = (transform.right * multi);
@@ -269,10 +286,10 @@ public class Movement : MonoBehaviour
                 combined = false;
             }
         }else if(Input.GetKey(KeyCode.A)){
-            if(multi == 1.0f && !combined){
+            if(multi == 2.0f && !combined){
                 anim.Play("WalkingLeft");
             }
-            if(multi > 1 && !combined){
+            if(multi > 2 && !combined){
                 anim.Play("RunningLeft");
             }
             rb.velocity = (-transform.right * multi);
@@ -286,7 +303,7 @@ public class Movement : MonoBehaviour
         }else{
             anim.Play("Idle");
         }
-        }
+    }
         
         
         

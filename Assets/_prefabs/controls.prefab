@@ -79,9 +79,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Required Peripherals:\n1. Mouse(or Trackpad) +Keyboard\n2. Speakers or
-    Headphones\n\nControls:\nW: Forward\t\t\t\t\tA: Left\nS: Back\t\t\t\t\t\tD: Right\nE:
+    Headphones\n\nControls:\nW: Forward\t\t\t\tA: Left\nS: Back\t\t\t\t\t\tD: Right\nE:
     Interact\t\t\t\t\tTab: Equip/Unequip Sword\nLeft Click: Attack\t\tEscape: Pause\nMouse
-    Movements Controls Character Rotation\n"
+    Movement Controls Character Rotation\n"
 --- !u!1 &5233831722610179876
 GameObject:
   m_ObjectHideFlags: 0
