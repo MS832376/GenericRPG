@@ -180,7 +180,7 @@ public class Movement : MonoBehaviour
             Time.timeScale = 0.0f; 
             
         }
-        if(Input.GetKeyDown(KeyCode.Space) && onGround){
+        if(Input.GetKeyDown(KeyCode.Space) && onGround && !STOPEVERYTHING){
             onGround = false;
             if(multi == 2){
                 rb.AddForce(transform.up * (multi*2.5f), ForceMode.Impulse);
@@ -200,6 +200,9 @@ public class Movement : MonoBehaviour
     }
     IEnumerator PleaseJump(){
         yield return new WaitForSeconds(1);
+        while(!onGround){
+            yield return new WaitForSeconds(.1f);
+        }
         STOPEVERYTHING = false;
         yield break;
     }
