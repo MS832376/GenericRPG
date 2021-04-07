@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
     public bool pressedE;
 
     void Start(){
+        PlayerPrefs.SetInt("TotalGot", 0);
         pressedE = false;
         Cursor.lockState = CursorLockMode.Locked;
         myHP = 1.0f;
@@ -51,9 +52,6 @@ public class Movement : MonoBehaviour
         STOPEVERYTHING = false;
     }
     void OnCollisionStay(Collision hitThis){
-        if(hitThis.gameObject.tag == "Ground"){
-            onGround = true;
-        }
         if(hitThis.gameObject.tag == "SwordDoor"){
             PlayerPrefs.SetInt("CameFrom", 1);
             SceneManager.LoadScene("GetTheSword"); 
@@ -84,6 +82,9 @@ public class Movement : MonoBehaviour
                 Destroy(this.gameObject);
                 SceneManager.LoadScene("YouDied");
             }
+        }
+        if(hitThis.gameObject.tag == "Ground"){
+            onGround = true;
         }
         
     }
@@ -138,7 +139,6 @@ public class Movement : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
         if(PlayerPrefs.GetInt("TotalGot") > 6){
-            PlayerPrefs.SetInt("TotalGot", 0);
             SceneManager.LoadScene("GameOver");
         }
         if(myHP < 0.1f){
@@ -184,11 +184,14 @@ public class Movement : MonoBehaviour
             onGround = false;
             if(multi == 2){
                 rb.AddForce(transform.up * (multi*2.5f), ForceMode.Impulse);
+                STOPEVERYTHING = true;
+                onGround = false;
             }else{
-                rb.AddForce(transform.up * (multi*1.25f), ForceMode.Impulse);
+                rb.AddForce(transform.up * (multi*2.5f), ForceMode.Impulse);
+                STOPEVERYTHING = true;
+                onGround = false;
             }
             anim.Play("Jump");
-            STOPEVERYTHING = true;
             StartCoroutine(PleaseJump());
         }
     }
