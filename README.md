@@ -7,6 +7,12 @@ GenericRPG Notes:
 
 This is my first attempt at a more open 3D game experience. The story is fairly linear with some opportunity for creativity given to the player concerning the order tasks are completed in.
 
+TO BE ADJUSTED:
+
+-"Demo Complete" Requirements
+
+-Final check for Spelling/Grammar
+
 TO BE ADDED:
 
 -Questline to get the shield
@@ -18,5 +24,7 @@ TO BE CONSIDERED:
 
 -In game economy
 
+-A lot of animations (Zombie Death, Sword Attack, Jump/SprintJump Variations)
 
-The code is updated faster than the posted version, but I am including all the necessary files so if you are incredibly desperate to play this masterpiece nothing is truly stopping you.
+
+The code is updated faster than the posted version, but I am including all the necessary files so if you are incredibly desperate to play the most up to date version of this masterpiece nothing is truly stopping you.
