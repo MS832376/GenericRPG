@@ -22,6 +22,7 @@ TagManager:
   - DANGER
   - Zombie
   - SwordStory
+  - TownCoin
   layers:
   - Default
   - TransparentFX

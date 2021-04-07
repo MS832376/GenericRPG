@@ -95,6 +95,9 @@ public class Movement : MonoBehaviour
             PlayerPrefs.SetInt("Sword", 1);
             SceneManager.LoadScene("SwordCutscene"); 
         }
+        if(hitThis.gameObject.tag == "TownCoin"){
+            PlayerPrefs.SetInt("townCoin", 1);
+        }
         
     }
 
