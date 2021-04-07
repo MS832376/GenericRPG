@@ -8,10 +8,15 @@ GenericRPG Notes:
 This is my first attempt at a more open 3D game experience. The story is fairly linear with some opportunity for creativity given to the player concerning the order tasks are completed in.
 
 TO BE ADDED:
+
 -Questline to get the shield
+
 -Treaure sidequest(s) (Ex. Find precursor orbs in Jak n Daxter, or the red coins in Super Mario 64)
 
+
 TO BE CONSIDERED:
+
 -In game economy
+
 
 The code is updated faster than the posted version, but I am including all the necessary files so if you are incredibly desperate to play this masterpiece nothing is truly stopping you.
