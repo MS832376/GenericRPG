@@ -3054,6 +3054,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6201024414955285944, guid: ef2578018a95c41478733ad944716f0c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.99707
+      objectReference: {fileID: 0}
     - target: {fileID: 9158065312002834324, guid: ef2578018a95c41478733ad944716f0c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8296,9 +8300,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: CastleWalls2
       objectReference: {fileID: 0}
+    - target: {fileID: 8729551977705312056, guid: a775ca8f3785f3647a6be71dd717dfc2, type: 3}
+      propertyPath: m_TagString
+      value: BackTown
+      objectReference: {fileID: 0}
     - target: {fileID: 8729551977705312058, guid: a775ca8f3785f3647a6be71dd717dfc2, type: 3}
       propertyPath: m_TagString
-      value: TownBad
+      value: BackTown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a775ca8f3785f3647a6be71dd717dfc2, type: 3}

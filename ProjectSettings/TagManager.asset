@@ -11,18 +11,19 @@ TagManager:
   - SwordDoor
   - Blocked
   - NPC2
-  - TownWoods
   - grabsword
   - walk
   - SwordScene
   - Sword
   - BadDoor
-  - TownBad
   - Enemy
   - DANGER
   - Zombie
   - SwordStory
   - TownCoin
+  - BackTown
+  - ShieldDoor
+  - TownWoods
   layers:
   - Default
   - TransparentFX

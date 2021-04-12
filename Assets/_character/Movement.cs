@@ -64,14 +64,9 @@ public class Movement : MonoBehaviour
         if(hitThis.gameObject.tag == "BadDoor" && gotSword != 1){
 
         }
-        if(hitThis.gameObject.tag == "TownWoods"){
+        if(hitThis.gameObject.tag == "BackTown"){
             SceneManager.LoadScene("Town");
         }
-        if(hitThis.gameObject.tag == "TownBad"){
-            SceneManager.LoadScene("GameOver");    
-        }
-        
-        
         
     }
     void OnCollisionEnter(Collision hitThis){
