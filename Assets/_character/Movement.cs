@@ -171,7 +171,7 @@ public class Movement : MonoBehaviour
             Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
             rb.MoveRotation(rb.rotation * rotate);
         }
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
+        if(Input.GetKey(KeyCode.LeftShift)){
             multi = 4.0f;
         }
         if(rb.velocity == new Vector3(0.0f,0.0f,0.0f)){
