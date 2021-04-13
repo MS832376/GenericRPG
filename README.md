@@ -24,7 +24,7 @@ TO BE CONSIDERED:
 
 -In game economy
 
--A lot of animations (Zombie Death, Sword Attack, Jump/SprintJump Variations)
+-A lot of animations (Zombie Death, Jump/SprintJump Variations)
 
 
 The code is updated faster than the posted version, but I am including all the necessary files so if you are incredibly desperate to play the most up to date version of this masterpiece nothing is truly stopping you.
