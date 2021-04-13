@@ -14,7 +14,9 @@ public class StartMenu : MonoBehaviour
     }
     public void newGame(string scene){
         PlayerPrefs.SetInt("townCoin", 0);
+        PlayerPrefs.SetInt("FreeCoin", 0);
         PlayerPrefs.SetInt("Sword", 0);
+        PlayerPrefs.SetInt("Shield", 0);
         PlayerPrefs.SetInt("CameFrom", 0);
         PlayerPrefs.SetInt("Scene", 0);
         SceneManager.LoadScene(scene);
@@ -33,6 +35,9 @@ public class StartMenu : MonoBehaviour
     }
     public void exitCollections(){
         collectUI.SetActive(false);
+    }
+    public void quitGame(){
+        Application.Quit();
     }
 
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class townStuff : MonoBehaviour
 {
-    public GameObject jumpCoin; 
+    public GameObject jumpCoin;
+    public GameObject freeCoin; 
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,9 @@ public class townStuff : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("townCoin", 0) == 1){
             jumpCoin.SetActive(false);
+        }
+        if(PlayerPrefs.GetInt("FreeCoin", 0) == 1){
+            freeCoin.SetActive(false);
         }
     }
 }

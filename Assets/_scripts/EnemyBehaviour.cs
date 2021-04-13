@@ -27,7 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(this.gameObject);
             Movement.totalGot += 1;
             PlayerPrefs.SetInt("TotalGot", Movement.totalGot);
-            Debug.Log(Movement.totalGot);
+            Debug.Log(PlayerPrefs.GetInt("TotalGot", 0));
         }
     }
     void GetPlayer(){

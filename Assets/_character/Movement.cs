@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public Vector3 bigJump;
     public Vector3 tryRotate;
     public GameObject sword;
+    public GameObject coinExp;
     public GameObject pauseUI;
     public float myHP;
     //public GameObject DangerSquare;
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
     public static int totalGot;
     public static bool changeSens;
     public bool pressedE;
+    public bool expCoins;
 
     void Start(){
         PlayerPrefs.SetInt("TotalGot", 0);
@@ -79,9 +81,18 @@ public class Movement : MonoBehaviour
             }
         }
         if(hitThis.gameObject.tag == "Ground"){
+            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            STOPEVERYTHING = false;
             onGround = true;
+
         }
         
+    }
+    void OnCollisionExit(Collision leaving){
+        if(leaving.gameObject.tag == "Ground" && !STOPEVERYTHING){
+            STOPEVERYTHING = true;
+            rb.velocity += -(transform.up * multi * .35f);
+        }
     }
     void OnTriggerEnter(Collider hitThis){
         if(hitThis.gameObject.tag == "SwordScene" && !haveSword){
@@ -92,6 +103,13 @@ public class Movement : MonoBehaviour
         }
         if(hitThis.gameObject.tag == "TownCoin"){
             PlayerPrefs.SetInt("townCoin", 1);
+        }
+        if(hitThis.gameObject.tag == "FreeCoin"){
+            PlayerPrefs.SetInt("FreeCoin", 1);
+            StartCoroutine(ExplainCoins());
+        }
+        if(hitThis.gameObject.tag == "zombieCoin"){
+            PlayerPrefs.SetInt("ZombCoin", 1);
         }
         
     }
@@ -137,7 +155,8 @@ public class Movement : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
         if(PlayerPrefs.GetInt("TotalGot") > 6){
-            SceneManager.LoadScene("GameOver");
+            
+            //SceneManager.LoadScene("GameOver");
         }
         if(myHP < 0.1f){
             Destroy(this.gameObject);
@@ -152,11 +171,13 @@ public class Movement : MonoBehaviour
             Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
             rb.MoveRotation(rb.rotation * rotate);
         }
-        if(Input.GetKey(KeyCode.LeftShift)){
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
             multi = 4.0f;
-        }else{
+        }
+        if(rb.velocity == new Vector3(0.0f,0.0f,0.0f)){
             multi = 2.0f;
         }
+
         if(Input.GetKeyDown(KeyCode.Tab) && gotSword == 1){
             if(sword.activeSelf == true){
                 sword.SetActive(false);
@@ -185,7 +206,7 @@ public class Movement : MonoBehaviour
                 STOPEVERYTHING = true;
                 onGround = false;
             }else{
-                rb.AddForce(transform.up * (multi*2.5f), ForceMode.Impulse);
+                rb.AddForce(transform.up * (3.0f*2.5f), ForceMode.Impulse);
                 STOPEVERYTHING = true;
                 onGround = false;
             }
@@ -194,9 +215,15 @@ public class Movement : MonoBehaviour
         }
     }
     IEnumerator PleaseAttack(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.48f);
         STOPEVERYTHING = false;
         //DangerSquare.SetActive(false);
+        yield break;
+    }
+    IEnumerator ExplainCoins(){
+        coinExp.SetActive(true);
+        yield return new WaitForSeconds(10);
+        coinExp.SetActive(false);
         yield break;
     }
     IEnumerator PleaseJump(){
@@ -308,18 +335,5 @@ public class Movement : MonoBehaviour
             anim.Play("Idle");
         }
     }
-        
-        
-        
-        /*if(Input.GetKey(KeyCode.Space) && onGround){
-            onGround = false;
-            if(multi == 1.0f){
-                rb.velocity += transform.up * multi;
-            }
-            if(multi > 1){
-                rb.velocity += transform.up * 9.0f;
-            }
-            
-        }*/
     }
 }
