@@ -17,7 +17,7 @@ TO BE ADDED:
 
 TO BE CONSIDERED:
 
--In game economy
+-In game economy (linked with coins)
 
 -Collectables that give additional HP
 
