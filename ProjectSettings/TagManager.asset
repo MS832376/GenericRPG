@@ -23,9 +23,10 @@ TagManager:
   - TownCoin
   - BackTown
   - ShieldDoor
-  - TownWoods
   - FreeCoin
   - zombieCoin
+  - deadZomb
+  - DeathZone
   layers:
   - Default
   - TransparentFX

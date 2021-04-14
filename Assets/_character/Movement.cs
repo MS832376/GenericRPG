@@ -66,6 +66,10 @@ public class Movement : MonoBehaviour
         if(hitThis.gameObject.tag == "BadDoor" && gotSword != 1){
 
         }
+        if(hitThis.gameObject.tag == "ShieldDoor"){
+            PlayerPrefs.SetInt("CameFrom", 3);
+            SceneManager.LoadScene("Shield");
+        }
         if(hitThis.gameObject.tag == "BackTown"){
             SceneManager.LoadScene("Town");
         }
@@ -111,6 +115,9 @@ public class Movement : MonoBehaviour
         if(hitThis.gameObject.tag == "zombieCoin"){
             PlayerPrefs.SetInt("ZombCoin", 1);
         }
+        if(hitThis.gameObject.tag == "DeathZone"){
+            SceneManager.LoadScene("YouDied");
+        }
         
     }
 
@@ -147,6 +154,13 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+    }
+    public void UnpauseGame(){
+        pauseUI.SetActive(false);
+        STOPEVERYTHING = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -185,7 +199,7 @@ public class Movement : MonoBehaviour
                 sword.SetActive(true);
             }
         }
-        if(Input.GetMouseButton(0) && gotSword == 1){
+        if(Input.GetMouseButton(0) && gotSword == 1 && !STOPEVERYTHING){
             anim.Play("Attack1");
             STOPEVERYTHING = true;
             //DangerSquare.SetActive(true);
@@ -195,9 +209,11 @@ public class Movement : MonoBehaviour
             pressedE = true;
         }
         if(Input.GetKeyDown(KeyCode.Escape)){
+            STOPEVERYTHING = true;
             pauseUI.SetActive(true);
-            Time.timeScale = 0.0f; 
-            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0.0f;     
         }
         if(Input.GetKeyDown(KeyCode.Space) && onGround && !STOPEVERYTHING){
             onGround = false;

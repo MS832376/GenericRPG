@@ -13,9 +13,15 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 1.0f;
     }
     public void RestartGame(string scene){
+        PlayerPrefs.SetInt("ZombCoin", 0);
+        PlayerPrefs.SetInt("townCoin", 0);
+        PlayerPrefs.SetInt("FreeCoin", 0);
         PlayerPrefs.SetInt("Sword", 0);
+        PlayerPrefs.SetInt("Shield", 0);
         PlayerPrefs.SetInt("CameFrom", 0);
         PlayerPrefs.SetInt("Scene", 0);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1.0f;
         pauseUI.SetActive(false);
         SceneManager.LoadScene(scene);
