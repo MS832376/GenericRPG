@@ -1,7 +1,7 @@
 # GenericRPG
 Take control of a young character ready to set off on the journey of a lifetime. You will start your journey in a town that has long been fending off the terrors looming outside their walls, and it is your job to help them. Gather the magic starter sword, the protective shield, and go conquer the zombies threatening the town!
 
-Playable Demo: https://play.unity.com/mg/other/rpg-demo-1
+Most up-to-date Playable Demo: https://play.unity.com/mg/other/rpg-demo-1
 
 GenericRPG Notes:
 
