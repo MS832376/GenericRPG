@@ -7,16 +7,21 @@ public class EnemyBehaviour : MonoBehaviour
     
     public Animator anim;
     public float inZone = 30.0f;
+
     [Header("Set Dynamically")]
+    public float inShot;
     public GameObject thePlayer;
     public Transform playerTran;
     public Collider zombBox;
     public bool dead;
+    public bool attacking;
     float dist;
     private int health;
     // Start is called before the first frame update
     void Start()
     {
+        inShot = .6f;
+        attacking = false;
         dead = false;
         health = 100;
 
@@ -34,16 +39,21 @@ public class EnemyBehaviour : MonoBehaviour
                 Debug.Log(PlayerPrefs.GetInt("TotalGot", 0));
             }
             dead = true;
+            Destroy(zombBox);
             anim.Play("death1");
             this.gameObject.tag = "deadZomb";
-            Destroy(zombBox);
-            StartCoroutine(ZombDeath());
+            StartCoroutine(PleaseDie());
             
         }
     }
-    IEnumerator ZombDeath(){
+    IEnumerator PleaseDie(){
         yield return new WaitForSeconds(2.0f);
         Destroy(this.gameObject);
+        yield break;
+    }
+    IEnumerator PleaseAttack(){
+        yield return new WaitForSeconds(1.0f);
+        attacking = false;
         yield break;
     }
     void GetPlayer(){
@@ -51,15 +61,21 @@ public class EnemyBehaviour : MonoBehaviour
         playerTran = thePlayer.transform;
     }
     void Update(){
-        if(!dead){
+        if(!dead && !attacking){
             if(playerTran != null){
                 dist = Vector3.Distance(playerTran.position, transform.position);
-                
+                if(dist < inShot){
+                    anim.Play("attack1");
+                    attacking = true;
+                    transform.LookAt(playerTran);
+                    StartCoroutine(PleaseAttack());                                                    
+                }
                 if(dist < inZone){
                     anim.Play("walk");
                     transform.LookAt(playerTran);
                     transform.position += transform.forward * Time.deltaTime;
-                }else{
+                }
+                else{
                     anim.Play("idle");
                 }
 

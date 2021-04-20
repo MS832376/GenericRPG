@@ -1375,6 +1375,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1984342953}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!1001 &134221181
@@ -2766,6 +2770,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 550727582}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!4 &489102808 stripped
@@ -4621,6 +4629,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1700254090}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!1 &774709008 stripped
@@ -6708,6 +6720,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1489874943}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!4 &1332850334 stripped
@@ -8312,6 +8328,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1078787723}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!1001 &1842924017
@@ -9799,6 +9819,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1995343103}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!1 &2029462024 stripped
@@ -11009,6 +11033,10 @@ PrefabInstance:
       propertyPath: zombBox
       value: 
       objectReference: {fileID: 1207894715}
+    - target: {fileID: 8251031077511190743, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
+      propertyPath: inShot
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e146883a67bfe74bbba8d02f7eb864d, type: 3}
 --- !u!1 &8251031077933150510 stripped
