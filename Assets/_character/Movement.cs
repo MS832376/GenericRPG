@@ -30,8 +30,8 @@ public class Movement : MonoBehaviour
     public bool expCoins;
     public Quaternion rotateR;
     public Quaternion rotateL;
-    public Quaternion lookUp;
-    public Quaternion lookDown;
+    //public Quaternion lookUp;
+    //public Quaternion lookDown;
 
     void Start(){
         PlayerPrefs.SetInt("TotalGot", 0);
@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
         rotateR = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0) * Time.deltaTime);
         rotateL = Quaternion.Euler(-(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0)) * Time.deltaTime);
-        lookUp = Quaternion.Euler(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0) * Time.deltaTime);
-        lookDown = Quaternion.Euler(-(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0)) * Time.deltaTime);
+        //lookUp = Quaternion.Euler(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0) * Time.deltaTime);
+        //lookDown = Quaternion.Euler(-(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0)) * Time.deltaTime);
         if(PlayerPrefs.GetInt("Sword") == 1){
             haveSword = true;
             sword.SetActive(true);
@@ -198,7 +198,7 @@ public class Movement : MonoBehaviour
                 sword.SetActive(true);
             }
         }
-        if(Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.F) && gotSword == 1 && !STOPEVERYTHING){
+        if((Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.F)) && gotSword == 1 && !STOPEVERYTHING){
             anim.Play("Attack1");
             STOPEVERYTHING = true;
             //DangerSquare.SetActive(true);
@@ -251,6 +251,12 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate(){
         if(!STOPEVERYTHING){
+            if(Input.GetAxis("Mouse X") > 0){
+                rb.MoveRotation(rb.rotation * rotateR);
+            }
+            if(Input.GetAxis("Mouse X") < 0){
+                rb.MoveRotation(rb.rotation * rotateL);
+            }
             if(Input.GetKey(KeyCode.Q)){
                 rb.MoveRotation(rb.rotation * rotateL);
             }
