@@ -9,6 +9,7 @@ public class StartMenu : MonoBehaviour
     public GameObject sensUI;
     public GameObject controlUI;
     public GameObject collectUI;
+    public GameObject SensText;
     public void changeScene(string scene){
         SceneManager.LoadScene(scene);
     }

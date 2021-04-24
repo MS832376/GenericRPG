@@ -13363,10 +13363,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5233831722191402451, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}
       propertyPath: m_Text
-      value: "Required Peripherals:\n1. Mouse(or Trackpad) +Keyboard\n2. Speakers
-        or Headphones\n\nControls:\nW: Forward\t\t\t\tA: Left\nS: Back\t\t\t\t\t\tD:
-        Right\nE: Interact\t\t\t\t\tTab: Equip/Unequip Sword\nLeft Click: Attack\t\tEscape:
-        Pause\nMouse Movements Controls Character Rotation\n"
+      value: 'W: Forward
+
+        A: Left
+
+        Q: Rotate Left
+
+        Spacebar:
+        Jump
+
+        M1 or F: Attack
+
+        R: Interact'
       objectReference: {fileID: 0}
     - target: {fileID: 5233831723066658587, guid: 627736d9e5f165740aa6fc8dfc77e79a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

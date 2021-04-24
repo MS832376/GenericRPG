@@ -12,10 +12,12 @@ public class SensControl : MonoBehaviour
     void Start()
     {
         showText = GetComponent<Text>();
+        float f = PlayerPrefs.GetFloat("Sensitivity", 100.0f);
+        showText.text = "Sens: " + f;
     }
     public void textUpdate(float value){
         PlayerPrefs.SetFloat("Sensitivity", value);
-        showText.text = value + " sens";
+        showText.text = "Sens: " + value;
     }
     public void changeScene(){
         sensUI.SetActive(false);

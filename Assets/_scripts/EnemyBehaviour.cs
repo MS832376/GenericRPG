@@ -68,7 +68,8 @@ public class EnemyBehaviour : MonoBehaviour
                     anim.Play("attack1");
                     attacking = true;
                     transform.LookAt(playerTran);
-                    StartCoroutine(PleaseAttack());                                                    
+                    zombBox.transform.position += transform.forward;
+                    StartCoroutine(PleaseAttack());
                 }
                 if(dist < inZone){
                     anim.Play("walk");

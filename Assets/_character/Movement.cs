@@ -26,12 +26,16 @@ public class Movement : MonoBehaviour
     public bool STOPEVERYTHING;
     public static int totalGot;
     public static bool changeSens;
-    public bool pressedE;
+    public bool pressedR;
     public bool expCoins;
+    public Quaternion rotateR;
+    public Quaternion rotateL;
+    public Quaternion lookUp;
+    public Quaternion lookDown;
 
     void Start(){
         PlayerPrefs.SetInt("TotalGot", 0);
-        pressedE = false;
+        pressedR = false;
         Cursor.lockState = CursorLockMode.Locked;
         myHP = 1.0f;
         HealthBar.SetHealthBarValue(myHP);
@@ -39,8 +43,10 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
-        userSens = PlayerPrefs.GetFloat("Sensitivity", 100.0f);
-        tryRotate = new Vector3(0, userSens*3, 0);
+        rotateR = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0) * Time.deltaTime);
+        rotateL = Quaternion.Euler(-(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0)) * Time.deltaTime);
+        lookUp = Quaternion.Euler(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0) * Time.deltaTime);
+        lookDown = Quaternion.Euler(-(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0)) * Time.deltaTime);
         if(PlayerPrefs.GetInt("Sword") == 1){
             haveSword = true;
             sword.SetActive(true);
@@ -110,7 +116,7 @@ public class Movement : MonoBehaviour
         }
         if(hitThis.gameObject.tag == "FreeCoin"){
             PlayerPrefs.SetInt("FreeCoin", 1);
-            StartCoroutine(ExplainCoins());
+            StartCoroutine(PleaseExplain());
         }
         if(hitThis.gameObject.tag == "zombieCoin"){
             PlayerPrefs.SetInt("ZombCoin", 1);
@@ -123,20 +129,20 @@ public class Movement : MonoBehaviour
 
     void OnTriggerStay(Collider hitThis){
         if(hitThis.gameObject.tag == "NPC2"){
-            if(pressedE){
-                pressedE = false;
+            if(pressedR){
+                pressedR = false;
                 SoundManagerScript.PlaySound("TheDumps");
             }
         }
         if(hitThis.gameObject.tag == "NPC"){
-            if(pressedE){
-                pressedE = false;
+            if(pressedR){
+                pressedR = false;
                 SoundManagerScript.PlaySound("whinykid");
             }
         }
         if(hitThis.gameObject.tag == "SwordStory"){
-            if(pressedE){
-                pressedE = false;
+            if(pressedR){
+                pressedR = false;
                 if(gotSword != 1){
                     SoundManagerScript.PlaySound("SwordMyth");
                 }else{
@@ -145,8 +151,8 @@ public class Movement : MonoBehaviour
             }      
         }
         if(hitThis.gameObject.tag == "Careful"){
-            if(pressedE){
-                pressedE = false;
+            if(pressedR){
+                pressedR = false;
                 if(gotSword != 1){
                     SoundManagerScript.PlaySound("Warning");
                 }else{
@@ -177,14 +183,7 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("YouDied");
         }
         HealthBar.SetHealthBarValue(myHP);
-        if(Input.GetAxis("Mouse X") > 0){
-            Quaternion rotate = Quaternion.Euler(tryRotate * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * rotate);
-        }
-        if(Input.GetAxis("Mouse X") < 0){
-            Quaternion rotate = Quaternion.Euler(-tryRotate * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * rotate);
-        }
+       
         if(Input.GetKey(KeyCode.LeftShift)){
             multi = 4.0f;
         }
@@ -199,14 +198,14 @@ public class Movement : MonoBehaviour
                 sword.SetActive(true);
             }
         }
-        if(Input.GetMouseButton(0) && gotSword == 1 && !STOPEVERYTHING){
+        if(Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.F) && gotSword == 1 && !STOPEVERYTHING){
             anim.Play("Attack1");
             STOPEVERYTHING = true;
             //DangerSquare.SetActive(true);
             StartCoroutine(PleaseAttack());
         }
-        if(Input.GetKeyDown(KeyCode.E)){
-            pressedE = true;
+        if(Input.GetKeyDown(KeyCode.R)){
+            pressedR = true;
         }
         if(Input.GetKeyDown(KeyCode.Escape)){
             STOPEVERYTHING = true;
@@ -236,7 +235,7 @@ public class Movement : MonoBehaviour
         //DangerSquare.SetActive(false);
         yield break;
     }
-    IEnumerator ExplainCoins(){
+    IEnumerator PleaseExplain(){
         coinExp.SetActive(true);
         yield return new WaitForSeconds(10);
         coinExp.SetActive(false);
@@ -252,104 +251,110 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate(){
         if(!STOPEVERYTHING){
+            if(Input.GetKey(KeyCode.Q)){
+                rb.MoveRotation(rb.rotation * rotateL);
+            }
+            if(Input.GetKey(KeyCode.E)){
+                rb.MoveRotation(rb.rotation * rotateR);
+            }
             if(Input.GetKey(KeyCode.W)){
-            if(multi == 2.0f && !combined){
-                anim.Play("Walking");
-            }
-            if(multi > 2.0f && !combined){
-                anim.Play("Running");
-            }
-            rb.velocity = (transform.forward * multi);
-            if(Input.GetKey(KeyCode.D)){
-                combined = true;
-                if(multi == 2.0f){
-                    anim.Play("WalkingRF");
+                if(multi == 2.0f && !combined){
+                    anim.Play("Walking");
                 }
-                if(multi > 2){
-                    anim.Play("RunningRF");
+                if(multi > 2.0f && !combined){
+                    anim.Play("Running");
                 }
-                rb.velocity += (transform.right * multi);
-            }else if(Input.GetKey(KeyCode.A)){
-                combined = true;
-                if(multi == 2.0f){
-                    anim.Play("WalkingLF");
-                }
-                if(multi > 2){
-                    anim.Play("RunningLF");
-                }
-                rb.velocity += (-transform.right * multi);
-            }else if(Input.GetKey(KeyCode.S)){
-                anim.Play("Idle");
-                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
+                rb.velocity = (transform.forward * multi);
+                if(Input.GetKey(KeyCode.D)){
+                    combined = true;
+                    if(multi == 2.0f){
+                        anim.Play("WalkingRF");
+                    }
+                    if(multi > 2){
+                        anim.Play("RunningRF");
+                    }
+                    rb.velocity += (transform.right * multi);
+                }else if(Input.GetKey(KeyCode.A)){
+                    combined = true;
+                    if(multi == 2.0f){
+                        anim.Play("WalkingLF");
+                    }
+                    if(multi > 2){
+                        anim.Play("RunningLF");
+                    }
+                    rb.velocity += (-transform.right * multi);
+                }else if(Input.GetKey(KeyCode.S)){
+                    anim.Play("Idle");
+                    rb.velocity = new Vector3(0.0f,0.0f,0.0f);
                 
-            }else{
-                combined = false;
-            }
-        }else if(Input.GetKey(KeyCode.S)){
-            if(multi == 2 && !combined){
-                anim.Play("WalkingBack");
-            }
-            if(multi > 2 && !combined){
-                anim.Play("RunningBack");
-            }
-            rb.velocity = (-transform.forward * multi);
-            if(Input.GetKey(KeyCode.D)){
-                combined = true;
-                if(multi == 2.0f){
-                    anim.Play("WalkingRB");
+                }else{
+                    combined = false;
                 }
-                if(multi > 2){
-                    anim.Play("RunningRB");
+            }else if(Input.GetKey(KeyCode.S)){
+                if(multi == 2 && !combined){
+                    anim.Play("WalkingBack");
                 }
-                rb.velocity += (transform.right * multi);
+                if(multi > 2 && !combined){
+                    anim.Play("RunningBack");
+                }
+                rb.velocity = (-transform.forward * multi);
+                if(Input.GetKey(KeyCode.D)){
+                    combined = true;
+                    if(multi == 2.0f){
+                        anim.Play("WalkingRB");
+                    }
+                    if(multi > 2){
+                        anim.Play("RunningRB");
+                    }
+                    rb.velocity += (transform.right * multi);
+                }else if(Input.GetKey(KeyCode.A)){
+                    combined = true;
+                    if(multi == 2.0f){
+                        anim.Play("WalkingLB");
+                    }
+                    if(multi > 2){
+                        anim.Play("RunningLB");
+                    }
+                    rb.velocity += (-transform.right * multi);
+                }else if(Input.GetKey(KeyCode.W)){
+                    anim.Play("Idle");
+                    rb.velocity = new Vector3(0.0f,0.0f,0.0f);  
+                }else{
+                    combined = false;
+                }
+            }else if(Input.GetKey(KeyCode.D)){
+                if(multi == 2.0f && !combined){
+                    anim.Play("WalkingRight");
+                }
+                if(multi > 2 && !combined){
+                    anim.Play("RunningRight");
+                }
+                rb.velocity = (transform.right * multi);
+                if(Input.GetKey(KeyCode.A)){
+                    combined = true;
+                    anim.Play("Idle");
+                    rb.velocity = new Vector3(0.0f,0.0f,0.0f);
+                }else{
+                    combined = false;
+                }
             }else if(Input.GetKey(KeyCode.A)){
-                combined = true;
-                if(multi == 2.0f){
-                    anim.Play("WalkingLB");
+                if(multi == 2.0f && !combined){
+                    anim.Play("WalkingLeft");
                 }
-                if(multi > 2){
-                    anim.Play("RunningLB");
+                if(multi > 2 && !combined){
+                    anim.Play("RunningLeft");
                 }
-                rb.velocity += (-transform.right * multi);
-            }else if(Input.GetKey(KeyCode.W)){
-                anim.Play("Idle");
-                rb.velocity = new Vector3(0.0f,0.0f,0.0f);  
+                rb.velocity = (-transform.right * multi);
+                if(Input.GetKey(KeyCode.D)){
+                    combined = true;
+                    anim.Play("Idle");
+                    rb.velocity = new Vector3(0.0f,0.0f,0.0f);
+                }else{
+                    combined = false;
+                }
             }else{
-                combined = false;
-            }
-        }else if(Input.GetKey(KeyCode.D)){
-            if(multi == 2.0f && !combined){
-                anim.Play("WalkingRight");
-            }
-            if(multi > 2 && !combined){
-                anim.Play("RunningRight");
-            }
-            rb.velocity = (transform.right * multi);
-            if(Input.GetKey(KeyCode.A)){
-                combined = true;
                 anim.Play("Idle");
-                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
-            }else{
-                combined = false;
             }
-        }else if(Input.GetKey(KeyCode.A)){
-            if(multi == 2.0f && !combined){
-                anim.Play("WalkingLeft");
-            }
-            if(multi > 2 && !combined){
-                anim.Play("RunningLeft");
-            }
-            rb.velocity = (-transform.right * multi);
-            if(Input.GetKey(KeyCode.D)){
-                combined = true;
-                anim.Play("Idle");
-                rb.velocity = new Vector3(0.0f,0.0f,0.0f);
-            }else{
-                combined = false;
-            }
-        }else{
-            anim.Play("Idle");
         }
-    }
     }
 }
