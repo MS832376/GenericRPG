@@ -27,6 +27,9 @@ TagManager:
   - zombieCoin
   - deadZomb
   - DeathZone
+  - TownWoods
+  - Goose
+  - GooseCoin
   layers:
   - Default
   - TransparentFX

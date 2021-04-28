@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip DesertTime, FoundSword, SwordMyth, TheDumps, Warning, whinykid, Zombie, Player;
+    public static AudioClip DesertTime, FoundSword, SwordMyth, TheDumps, Warning, whinykid, Zombie, Player, Goose;
     static AudioSource theNoise;
 
     void Start(){
@@ -16,6 +16,7 @@ public class SoundManagerScript : MonoBehaviour
         TheDumps = Resources.Load<AudioClip>("TheDumps");
         Zombie = Resources.Load<AudioClip>("ZombieHit");
         Player = Resources.Load<AudioClip>("PlayerHit");
+        Goose = Resources.Load<AudioClip>("GooseHonk");
         theNoise = GetComponent<AudioSource>();
 
     }
@@ -44,6 +45,9 @@ public class SoundManagerScript : MonoBehaviour
             break;
         case "PlayerHit":
             theNoise.PlayOneShot(Player, 3.0f);
+            break;
+        case "GooseClose":
+            theNoise.PlayOneShot(Goose, 3.0f);
             break;
         }
     }

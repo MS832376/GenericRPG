@@ -21,6 +21,7 @@ public class StartMenu : MonoBehaviour
         PlayerPrefs.SetInt("Shield", 0);
         PlayerPrefs.SetInt("CameFrom", 0);
         PlayerPrefs.SetInt("Scene", 0);
+        PlayerPrefs.SetInt("GooseCoin", 0);
         SceneManager.LoadScene(scene);
     }
     public void changeSens(){

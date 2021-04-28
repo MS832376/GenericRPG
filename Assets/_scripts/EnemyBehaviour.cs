@@ -7,12 +7,12 @@ public class EnemyBehaviour : MonoBehaviour
     
     public Animator anim;
     public float inZone = 30.0f;
+    public Collider zombBox;
 
     [Header("Set Dynamically")]
     public float inShot;
     public GameObject thePlayer;
     public Transform playerTran;
-    public Collider zombBox;
     public bool dead;
     public bool attacking;
     float dist;

@@ -121,6 +121,10 @@ public class Movement : MonoBehaviour
         if(hitThis.gameObject.tag == "zombieCoin"){
             PlayerPrefs.SetInt("ZombCoin", 1);
         }
+        if(hitThis.gameObject.tag == "GooseCoin"){
+            PlayerPrefs.SetInt("GooseCoin", 1);
+            hitThis.gameObject.SetActive(false);
+        }
         if(hitThis.gameObject.tag == "DeathZone"){
             SceneManager.LoadScene("YouDied");
         }
