@@ -2502,7 +2502,7 @@ MonoBehaviour:
   coinTran: {fileID: 0}
   threatened: 0
   running: 0
-  coinDropped: 0
+  coinDropped: 1
 --- !u!65 &737040447 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8758472475386269223, guid: 035c98455b82b674ca1dbfe98d4642e5, type: 3}
