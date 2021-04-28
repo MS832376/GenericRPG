@@ -14,6 +14,7 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
     public void newGame(string scene){
+        PlayerPrefs.SetInt("TotalCoins", 0);
         PlayerPrefs.SetInt("ZombCoin", 0);
         PlayerPrefs.SetInt("townCoin", 0);
         PlayerPrefs.SetInt("FreeCoin", 0);

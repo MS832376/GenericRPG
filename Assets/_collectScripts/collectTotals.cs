@@ -37,6 +37,7 @@ public class collectTotals : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("collect script ran");
         townText = Town.GetComponent<Text>();
         forestText = Forest.GetComponent<Text>();
         desertText = Desert.GetComponent<Text>();
@@ -59,5 +60,6 @@ public class collectTotals : MonoBehaviour
         lakeText.text = laketCoins + "/" + lakeOver;
         totalCoins = townCoins + forestCoins + desertCoins + laketCoins;
         totalText.text = totalCoins + "/" + overall;
+        PlayerPrefs.SetInt("TotalCoins", totalCoins);
     }
 }

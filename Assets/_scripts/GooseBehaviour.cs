@@ -24,10 +24,12 @@ public class GooseBehaviour : MonoBehaviour
     void Start()
     {
         gooseCoin = GameObject.FindGameObjectWithTag("GooseCoin");
-        coinDropped = false;
-        gooseCoin.SetActive(false);
         if(PlayerPrefs.GetInt("GooseCoin", 0) == 1){
             coinDropped = true;
+            gooseCoin.SetActive(false);
+        }else{
+            coinDropped = false;
+            gooseCoin.SetActive(false);
         }
         threatened = false;
         running = false;

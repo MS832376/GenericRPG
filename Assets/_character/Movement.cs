@@ -45,8 +45,7 @@ public class Movement : MonoBehaviour
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
         rotateR = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0) * Time.deltaTime);
         rotateL = Quaternion.Euler(-(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0)) * Time.deltaTime);
-        //lookUp = Quaternion.Euler(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0) * Time.deltaTime);
-        //lookDown = Quaternion.Euler(-(new Vector3(PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0, 0)) * Time.deltaTime);
+        
         if(PlayerPrefs.GetInt("Sword") == 1){
             haveSword = true;
             sword.SetActive(true);
@@ -113,17 +112,21 @@ public class Movement : MonoBehaviour
         }
         if(hitThis.gameObject.tag == "TownCoin"){
             PlayerPrefs.SetInt("townCoin", 1);
+            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins") + 1);
         }
         if(hitThis.gameObject.tag == "FreeCoin"){
             PlayerPrefs.SetInt("FreeCoin", 1);
+            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins") + 1);
             StartCoroutine(PleaseExplain());
         }
         if(hitThis.gameObject.tag == "zombieCoin"){
             PlayerPrefs.SetInt("ZombCoin", 1);
+            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins") + 1);
         }
         if(hitThis.gameObject.tag == "GooseCoin"){
             PlayerPrefs.SetInt("GooseCoin", 1);
             hitThis.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins") + 1);
         }
         if(hitThis.gameObject.tag == "DeathZone"){
             SceneManager.LoadScene("YouDied");
