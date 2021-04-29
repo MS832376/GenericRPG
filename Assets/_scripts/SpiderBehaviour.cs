@@ -47,17 +47,17 @@ public class SpiderBehaviour : MonoBehaviour
                 if(dist <= attackZone){
                     attacking = true;
                     anim.Play("Attack");
-                    this.transform.LookAt(playerTran);
+                    transform.LookAt(playerTran);
                     StartCoroutine(PleaseAttack());
                 }else if(dist > attackZone && threatened){
                     anim.Play("Walking");
-                    this.transform.LookAt(playerTran);
-                    this.transform.position += transform.forward * Time.deltaTime;
+                    transform.LookAt(playerTran);
+                    spidBox.transform.position += transform.forward * Time.deltaTime;
                 }else if(dist <= inZone && !threatened){
                     threatened = true;
-                    transform.LookAt(playerTran);
                     anim.Play("Walking");
-                    this.transform.position += transform.forward * Time.deltaTime;
+                    transform.LookAt(playerTran);
+                    spidBox.transform.position += transform.forward * Time.deltaTime;
                 }else{
                     threatened = false;
                     anim.Play("Idle");
