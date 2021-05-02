@@ -43,8 +43,8 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         bigJump = new Vector3(0.0f, 2.5f, 0.0f);
-        rotateR = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0) * Time.deltaTime);
-        rotateL = Quaternion.Euler(-(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*3, 0)) * Time.deltaTime);
+        rotateR = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*5, 0) * Time.fixedDeltaTime);
+        rotateL = Quaternion.Euler(-(new Vector3(0, PlayerPrefs.GetFloat("Sensitivity", 100.0f)*5, 0)) * Time.fixedDeltaTime);
         
         if(PlayerPrefs.GetInt("Sword") == 1){
             haveSword = true;
@@ -67,9 +67,6 @@ public class Movement : MonoBehaviour
             PlayerPrefs.SetInt("CameFrom", 2);
             PlayerPrefs.SetInt("TotalGot", 0);
             SceneManager.LoadScene("BadWorld");
-        }
-        if(hitThis.gameObject.tag == "BadDoor" && gotSword != 1){
-
         }
         if(hitThis.gameObject.tag == "ShieldDoor"){
             PlayerPrefs.SetInt("CameFrom", 3);
@@ -178,6 +175,13 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if(userSens != PlayerPrefs.GetFloat("Sensitivity", 100)){
+            userSens = PlayerPrefs.GetFloat("Sensitivity", 100);
+            rotateR = Quaternion.Euler(new Vector3(0, userSens*5, 0) * Time.fixedDeltaTime);
+            rotateL = Quaternion.Euler(-(new Vector3(0, userSens*5, 0)) * Time.fixedDeltaTime);
+            Debug.Log(userSens);
+
+        }
         if(rb == null){
             rb = GetComponent<Rigidbody>();
         }
@@ -205,7 +209,7 @@ public class Movement : MonoBehaviour
                 sword.SetActive(true);
             }
         }
-        if((Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.F)) && gotSword == 1 && !STOPEVERYTHING){
+        if(gotSword == 1 && (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.F)) && !STOPEVERYTHING){
             anim.Play("Attack1");
             STOPEVERYTHING = true;
             //DangerSquare.SetActive(true);

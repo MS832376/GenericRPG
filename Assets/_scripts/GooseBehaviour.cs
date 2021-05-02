@@ -79,7 +79,7 @@ public class GooseBehaviour : MonoBehaviour
                 }
                 transform.LookAt(playerTran);
                 this.transform.Rotate(0f, 45f, 0f, Space.World);
-                goosBox.transform.position += transform.right * 4.5f * Time.deltaTime;
+                goosBox.transform.position += transform.right * 5f * Time.deltaTime;
             }else if(running && dist > runZone){
                 anim.Play("threatenedRun");
                 if(!threatened){

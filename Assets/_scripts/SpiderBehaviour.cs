@@ -9,6 +9,7 @@ public class SpiderBehaviour : MonoBehaviour
     public float inZone = 15.0f;
     public float attackZone = 2f;
     public Collider spidBox;
+    public Transform allParts;
     
 
     [Header("Set Dynamically")]
@@ -28,6 +29,7 @@ public class SpiderBehaviour : MonoBehaviour
     void GetPlayer(){
         thePlayer = GameObject.FindGameObjectWithTag("Player");
         playerTran = thePlayer.transform;
+        //Debug.Log("Got PlayerTran");
     }
     void CheckDist(){
         dist = Vector3.Distance(playerTran.position, transform.position);
@@ -39,30 +41,37 @@ public class SpiderBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(!attacking){
             if(playerTran == null){
-            GetPlayer();
-            CheckDist();
+                GetPlayer();
             }else{
+                CheckDist();
                 if(dist <= attackZone){
                     attacking = true;
+                    Debug.Log("attack stuff");
                     anim.Play("Attack");
+                    allParts.LookAt(playerTran);
                     transform.LookAt(playerTran);
                     StartCoroutine(PleaseAttack());
                 }else if(dist > attackZone && threatened){
                     anim.Play("Walking");
+                    allParts.LookAt(playerTran);
                     transform.LookAt(playerTran);
                     spidBox.transform.position += transform.forward * Time.deltaTime;
                 }else if(dist <= inZone && !threatened){
                     threatened = true;
                     anim.Play("Walking");
+                    allParts.LookAt(playerTran);
                     transform.LookAt(playerTran);
                     spidBox.transform.position += transform.forward * Time.deltaTime;
                 }else{
                     threatened = false;
                     anim.Play("Idle");
                 }
-                CheckDist();
+                if(dist > inZone){
+                    threatened = false;
+                }    
             }
         }
         
