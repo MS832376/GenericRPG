@@ -64,19 +64,17 @@ public class EnemyBehaviour : MonoBehaviour
         if(!dead && !attacking){
             if(playerTran != null){
                 dist = Vector3.Distance(playerTran.position, transform.position);
-                if(dist < inShot){
-                    anim.Play("attack1");
+                if(dist <= inShot){
                     attacking = true;
+                    anim.Play("attack1");
                     transform.LookAt(playerTran);
-                    zombBox.transform.position += transform.forward;
+                    //zombBox.transform.position += transform.forward;
                     StartCoroutine(PleaseAttack());
-                }
-                if(dist < inZone){
+                }else if(dist < inZone && dist > inShot){
                     anim.Play("walk");
                     transform.LookAt(playerTran);
                     transform.position += transform.forward * Time.deltaTime;
-                }
-                else{
+                }else{
                     anim.Play("idle");
                 }
 

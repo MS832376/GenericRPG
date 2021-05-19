@@ -121,13 +121,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663387542964699739}
-  m_LocalRotation: {x: 0.1464466, y: -0.35355338, z: -0.35355338, w: 0.8535535}
+  m_LocalRotation: {x: 0.14936806, y: -0.34647608, z: -0.35232905, w: 0.8564507}
   m_LocalPosition: {x: 0.9450001, y: 0.04899958, z: 0.9300003}
   m_LocalScale: {x: 0.7500001, y: 0.1, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 6814436674144220448}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: -45}
+  m_LocalEulerAnglesHint: {x: 0.671, y: -44.329, z: -44.996}
 --- !u!33 &8977863529680798610
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -769,9 +769,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4963281221040284933}
-  - component: {fileID: 8076163520416172407}
   - component: {fileID: 9116846913924063922}
   - component: {fileID: 928746334433888134}
+  - component: {fileID: 8076163520416172407}
   - component: {fileID: 5661605336143357917}
   m_Layer: 0
   m_Name: Spider
@@ -795,19 +795,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8076163520416172407
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4963281221040284934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9588308, y: 0.64763856, z: 2.324026}
-  m_Center: {x: 0.018429518, y: 0.04804933, z: -0.02135557}
 --- !u!95 &9116846913924063922
 Animator:
   serializedVersion: 3
@@ -843,6 +830,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &8076163520416172407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963281221040284934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0031383, y: 0.53790903, z: 1.1097298}
+  m_Center: {x: 0.009303451, y: -0.10141826, z: 0.042406082}
 --- !u!114 &5661605336143357917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
   anim: {fileID: 9116846913924063922}
   rbody: {fileID: 928746334433888134}
   inZone: 15
-  attackZone: 2
+  attackZone: 1.6
   spidBox: {fileID: 8076163520416172407}
   allParts: {fileID: 6814436674144220448}
   thePlayer: {fileID: 0}

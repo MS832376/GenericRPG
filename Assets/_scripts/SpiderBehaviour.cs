@@ -49,7 +49,6 @@ public class SpiderBehaviour : MonoBehaviour
                 CheckDist();
                 if(dist <= attackZone){
                     attacking = true;
-                    Debug.Log("attack stuff");
                     anim.Play("Attack");
                     allParts.LookAt(playerTran);
                     transform.LookAt(playerTran);

@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
 
     public bool onGround;
     public bool attack;
+    public bool chillin; //bool for "invincibility" frames
     public bool STOPEVERYTHING;
     public static int totalGot;
     public static bool changeSens;
@@ -56,6 +57,7 @@ public class Movement : MonoBehaviour
             sword.SetActive(false);
         }
         attack = false;
+        chillin = true;
         STOPEVERYTHING = false;
     }
     void OnCollisionStay(Collision hitThis){
@@ -79,11 +81,16 @@ public class Movement : MonoBehaviour
     }
     void OnCollisionEnter(Collision hitThis){
         if(hitThis.gameObject.tag == "Zombie"){
-            myHP -= 0.2f;
-            SoundManagerScript.PlaySound("PlayerHit");
-            if(myHP <= 0.00f){
-                Destroy(this.gameObject);
-                SceneManager.LoadScene("YouDied");
+            if(chillin){
+                
+                myHP -= 0.2f;
+                SoundManagerScript.PlaySound("PlayerHit");
+                if(myHP <= 0.00f){
+                    Destroy(this.gameObject);
+                    SceneManager.LoadScene("YouDied");
+                }
+                chillin = false;
+                StartCoroutine(PleaseNoHurt());
             }
         }
         if(hitThis.gameObject.tag == "Ground"){
@@ -243,7 +250,6 @@ public class Movement : MonoBehaviour
     IEnumerator PleaseAttack(){
         yield return new WaitForSeconds(.48f);
         STOPEVERYTHING = false;
-        //DangerSquare.SetActive(false);
         yield break;
     }
     IEnumerator PleaseExplain(){
@@ -258,6 +264,11 @@ public class Movement : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         STOPEVERYTHING = false;
+        yield break;
+    }
+    IEnumerator PleaseNoHurt(){
+        yield return new WaitForSeconds(2f);
+        chillin = true;
         yield break;
     }
     void FixedUpdate(){

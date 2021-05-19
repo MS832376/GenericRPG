@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8251031077473324109}
   m_Layer: 0
   m_Name: Foot_IK.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8251031077473338745}
   m_Layer: 0
   m_Name: Knee_IK.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ Transform:
   - {fileID: 8251031077473352071}
   m_Father: {fileID: 8251031077473238083}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 84.289444, y: -0.0020040215, z: 179.998}
 --- !u!1 &8251031077473489355
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 8251031077473247179}
   m_Layer: 0
   m_Name: Upper_leg.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ Transform:
   - {fileID: 8251031077473340091}
   m_Father: {fileID: 8251031077473232461}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -39.761414, y: -18.753109, z: -161.66861}
 --- !u!1 &8251031077473489573
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,11 +176,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5523acc7e40b4ab4b9cbfe87b1429fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
   anim: {fileID: 8251031077466391279}
   inZone: 30
+  zombBox: {fileID: 0}
+  inShot: 0
   thePlayer: {fileID: 0}
   playerTran: {fileID: 0}
+  dead: 0
+  attacking: 0
 --- !u!65 &9026412013635300675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205,7 +208,7 @@ GameObject:
   - component: {fileID: 8251031077473271069}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +228,7 @@ Transform:
   - {fileID: 8251031077473259627}
   m_Father: {fileID: 8251031077473325333}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.921896, y: 14.590788, z: -15.129292}
 --- !u!1 &8251031077473494067
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +240,7 @@ GameObject:
   - component: {fileID: 8251031077473259627}
   m_Layer: 0
   m_Name: Vis_1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +259,7 @@ Transform:
   - {fileID: 8251031077473263401}
   m_Father: {fileID: 8251031077473271069}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.191795, y: 177.3086, z: -169.95204}
 --- !u!1 &8251031077473495163
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +271,7 @@ GameObject:
   - component: {fileID: 8251031077473262845}
   m_Layer: 0
   m_Name: Goblin_armature
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,7 +294,7 @@ Transform:
   - {fileID: 8251031077473250051}
   m_Father: {fileID: 8251031077473238453}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!1 &8251031077473495631
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +306,7 @@ GameObject:
   - component: {fileID: 8251031077473325381}
   m_Layer: 0
   m_Name: spine_3
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,7 +327,7 @@ Transform:
   - {fileID: 8251031077473325333}
   m_Father: {fileID: 8251031077473234679}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.605202, y: -15.664041, z: 0.85604846}
 --- !u!1 &8251031077473496289
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +339,7 @@ GameObject:
   - component: {fileID: 8251031077473252825}
   m_Layer: 0
   m_Name: FootRoll_crtl.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +358,7 @@ Transform:
   - {fileID: 8251031077473234339}
   m_Father: {fileID: 8251031077473278723}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 59.38513, y: 180, z: 180}
 --- !u!1 &8251031077473496649
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +370,7 @@ GameObject:
   - component: {fileID: 8251031077473343673}
   m_Layer: 0
   m_Name: finger2_2.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,7 +400,7 @@ GameObject:
   - component: {fileID: 8251031077473250679}
   m_Layer: 0
   m_Name: Elbow_IK.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +430,7 @@ GameObject:
   - component: {fileID: 8251031077473352071}
   m_Layer: 0
   m_Name: Knee_IK.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,7 +460,7 @@ GameObject:
   - component: {fileID: 8251031077473327595}
   m_Layer: 0
   m_Name: Upper_arm.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,7 +479,7 @@ Transform:
   - {fileID: 8251031077473329403}
   m_Father: {fileID: 8251031077473346647}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.86223, y: -145.2537, z: 66.03888}
 --- !u!1 &8251031077473501801
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +492,7 @@ GameObject:
   - component: {fileID: 8251031077470558869}
   m_Layer: 0
   m_Name: GOBLIN_BASE
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,7 +628,7 @@ GameObject:
   - component: {fileID: 8251031077473234339}
   m_Layer: 0
   m_Name: FootRoll_crtl.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +658,7 @@ GameObject:
   - component: {fileID: 8251031077473337885}
   m_Layer: 0
   m_Name: Thumb_1.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,7 +677,7 @@ Transform:
   - {fileID: 8251031077473279111}
   m_Father: {fileID: 8251031077473263993}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -59.526836, y: -89.67948, z: -135.53142}
 --- !u!1 &8251031077473510495
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +689,7 @@ GameObject:
   - component: {fileID: 8251031077473325333}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -705,7 +708,7 @@ Transform:
   - {fileID: 8251031077473271069}
   m_Father: {fileID: 8251031077473325381}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.382637, y: 0.00002689074, z: -0.0000005197661}
 --- !u!1 &8251031077473511547
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +720,7 @@ GameObject:
   - component: {fileID: 8251031077473263993}
   m_Layer: 0
   m_Name: Hand.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,7 +741,7 @@ Transform:
   - {fileID: 8251031077473337885}
   m_Father: {fileID: 8251031077473329403}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25.39036, y: 12.694321, z: -58.692642}
 --- !u!1 &8251031077473513257
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +753,7 @@ GameObject:
   - component: {fileID: 8251031077473333397}
   m_Layer: 0
   m_Name: Toe.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +783,7 @@ GameObject:
   - component: {fileID: 8251031077473337049}
   m_Layer: 0
   m_Name: Toe.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,7 +802,7 @@ Transform:
   - {fileID: 8251031077473345811}
   m_Father: {fileID: 8251031077473323163}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.474117, y: 0.0017201134, z: 0.0008415303}
 --- !u!1 &8251031077473514619
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +814,7 @@ GameObject:
   - component: {fileID: 8251031077473227779}
   m_Layer: 0
   m_Name: Heel_roll.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,7 +833,7 @@ Transform:
   - {fileID: 8251031077473265967}
   m_Father: {fileID: 8251031077473238083}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98021, y: -179.99998, z: 0}
 --- !u!1 &8251031077473515141
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +845,7 @@ GameObject:
   - component: {fileID: 8251031077473328793}
   m_Layer: 0
   m_Name: Hand.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,7 +866,7 @@ Transform:
   - {fileID: 8251031077473347145}
   m_Father: {fileID: 8251031077473323321}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -6.0402737, y: 64.28234, z: 13.060427}
 --- !u!1 &8251031077473515963
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +878,7 @@ GameObject:
   - component: {fileID: 8251031077473266917}
   m_Layer: 0
   m_Name: Knee_IK.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -894,7 +897,7 @@ Transform:
   - {fileID: 8251031077473230621}
   m_Father: {fileID: 8251031077473278723}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 84.28934, y: -0.0012320568, z: 179.99876}
 --- !u!1 &8251031077473516569
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +909,7 @@ GameObject:
   - component: {fileID: 8251031077473346647}
   m_Layer: 0
   m_Name: Clavicle.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,7 +928,7 @@ Transform:
   - {fileID: 8251031077473327595}
   m_Father: {fileID: 8251031077473325381}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.898438, y: -149.2706, z: 70.40674}
 --- !u!1 &8251031077473517397
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +940,7 @@ GameObject:
   - component: {fileID: 8251031077473242853}
   m_Layer: 0
   m_Name: finger2_1.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -956,7 +959,7 @@ Transform:
   - {fileID: 8251031077473236813}
   m_Father: {fileID: 8251031077473263993}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 55.81809, y: 18.817402, z: 15.450176}
 --- !u!1 &8251031077473519775
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +971,7 @@ GameObject:
   - component: {fileID: 8251031077473323163}
   m_Layer: 0
   m_Name: Foot.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -987,7 +990,7 @@ Transform:
   - {fileID: 8251031077473337049}
   m_Father: {fileID: 8251031077473340091}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 84.14241, y: 126.297485, z: -46.02074}
 --- !u!1 &8251031077473520841
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1002,7 @@ GameObject:
   - component: {fileID: 8251031077473307499}
   m_Layer: 0
   m_Name: Foot_IK.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1018,7 +1021,7 @@ Transform:
   - {fileID: 8251031077473324109}
   m_Father: {fileID: 8251031077473239533}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.191969, y: 0.07526563, z: -179.8546}
 --- !u!1 &8251031077473520863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1033,7 @@ GameObject:
   - component: {fileID: 8251031077473258923}
   m_Layer: 0
   m_Name: Toe.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1049,7 +1052,7 @@ Transform:
   - {fileID: 8251031077473333397}
   m_Father: {fileID: 8251031077473333993}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 61.075943, y: 0.0022596954, z: 0.0013575419}
 --- !u!1 &8251031077473521821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1064,7 @@ GameObject:
   - component: {fileID: 8251031077473345551}
   m_Layer: 0
   m_Name: jaw
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1080,7 +1083,7 @@ Transform:
   - {fileID: 8251031077473229893}
   m_Father: {fileID: 8251031077473271069}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.7806, y: -0.00073733577, z: -0.000738309}
 --- !u!1 &8251031077473522887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1095,7 @@ GameObject:
   - component: {fileID: 8251031077473234679}
   m_Layer: 0
   m_Name: spine_2
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1111,7 +1114,7 @@ Transform:
   - {fileID: 8251031077473325381}
   m_Father: {fileID: 8251031077473232461}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.587226, y: 1.7955292, z: 0.058985826}
 --- !u!1 &8251031077473527713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1126,7 @@ GameObject:
   - component: {fileID: 8251031077473323321}
   m_Layer: 0
   m_Name: Bottom_arm.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,7 +1145,7 @@ Transform:
   - {fileID: 8251031077473328793}
   m_Father: {fileID: 8251031077473334875}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.714123, y: -14.9665365, z: -75.65765}
 --- !u!1 &8251031077473531563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1157,7 @@ GameObject:
   - component: {fileID: 8251031077473338153}
   m_Layer: 0
   m_Name: Hand_IK.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1173,7 +1176,7 @@ Transform:
   - {fileID: 8251031077473282387}
   m_Father: {fileID: 8251031077473262845}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.8844872}
 --- !u!1 &8251031077473532889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1188,7 @@ GameObject:
   - component: {fileID: 8251031077473345811}
   m_Layer: 0
   m_Name: Toe.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,7 +1218,7 @@ GameObject:
   - component: {fileID: 8251031077473306821}
   m_Layer: 0
   m_Name: finger2_1.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1234,7 +1237,7 @@ Transform:
   - {fileID: 8251031077473252239}
   m_Father: {fileID: 8251031077473328793}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -35.395798, y: 107.4055, z: -1.7116416}
 --- !u!1 &8251031077473536007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1249,7 @@ GameObject:
   - component: {fileID: 8251031077473278723}
   m_Layer: 0
   m_Name: Foot_ctrl.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1267,7 +1270,7 @@ Transform:
   - {fileID: 8251031077473266917}
   m_Father: {fileID: 8251031077473262845}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!1 &8251031077473540417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1282,7 @@ GameObject:
   - component: {fileID: 8251031077473331005}
   m_Layer: 0
   m_Name: FootRoll_crtl.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1310,7 +1313,7 @@ GameObject:
   - component: {fileID: 8251031077470375731}
   m_Layer: 0
   m_Name: gbln_war_eq.002
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1446,7 +1449,7 @@ GameObject:
   - component: {fileID: 8251031077473330305}
   m_Layer: 0
   m_Name: Heel_roll.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1465,7 +1468,7 @@ Transform:
   - {fileID: 8251031077473239533}
   m_Father: {fileID: 8251031077473278723}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98021, y: 179.99998, z: 0}
 --- !u!1 &8251031077473545937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1480,7 @@ GameObject:
   - component: {fileID: 8251031077473226849}
   m_Layer: 0
   m_Name: Foot_IK.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1496,7 +1499,7 @@ Transform:
   - {fileID: 8251031077473237431}
   m_Father: {fileID: 8251031077473265967}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.192064, y: -0.00004115523, z: 179.99997}
 --- !u!1 &8251031077473546209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1511,7 @@ GameObject:
   - component: {fileID: 8251031077473344269}
   m_Layer: 0
   m_Name: finger1_2.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1538,7 +1541,7 @@ GameObject:
   - component: {fileID: 8251031077473230621}
   m_Layer: 0
   m_Name: Knee_IK.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1568,7 +1571,7 @@ GameObject:
   - component: {fileID: 8251031077473247387}
   m_Layer: 0
   m_Name: FootRoll_crtl.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1587,7 +1590,7 @@ Transform:
   - {fileID: 8251031077473331005}
   m_Father: {fileID: 8251031077473238083}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87.85233, y: 63.360115, z: 63.360115}
 --- !u!1 &8251031077473548729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1602,7 @@ GameObject:
   - component: {fileID: 8251031077473265967}
   m_Layer: 0
   m_Name: Toe_roll.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1618,7 +1621,7 @@ Transform:
   - {fileID: 8251031077473226849}
   m_Father: {fileID: 8251031077473227779}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.9570372, y: -0.00000960288, z: -53.27977}
 --- !u!1 &8251031077473549101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1633,7 @@ GameObject:
   - component: {fileID: 8251031077473305881}
   m_Layer: 0
   m_Name: finger1_1.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1649,7 +1652,7 @@ Transform:
   - {fileID: 8251031077473338013}
   m_Father: {fileID: 8251031077473328793}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -43.025604, y: 88.21494, z: 1.8634052}
 --- !u!1 &8251031077473549327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1664,7 @@ GameObject:
   - component: {fileID: 8251031077473341573}
   m_Layer: 0
   m_Name: Thumb_2.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1694,7 @@ GameObject:
   - component: {fileID: 8251031077473244427}
   m_Layer: 0
   m_Name: Elbow_IK.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1721,7 +1724,7 @@ GameObject:
   - component: {fileID: 8251031077473237863}
   m_Layer: 0
   m_Name: finger2_2.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1751,7 +1754,7 @@ GameObject:
   - component: {fileID: 8251031077473338109}
   m_Layer: 0
   m_Name: Elbow_IK.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1770,7 +1773,7 @@ Transform:
   - {fileID: 8251031077473244427}
   m_Father: {fileID: 8251031077473266531}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15.616254, y: 1.8882844, z: 12.116788}
 --- !u!1 &8251031077473602883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1785,7 @@ GameObject:
   - component: {fileID: 8251031077473247721}
   m_Layer: 0
   m_Name: Upper_leg.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1801,7 +1804,7 @@ Transform:
   - {fileID: 8251031077473279417}
   m_Father: {fileID: 8251031077473232461}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.207933, y: -0.772334, z: -179.73715}
 --- !u!1 &8251031077473682357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,7 +1816,7 @@ GameObject:
   - component: {fileID: 8251031077473239533}
   m_Layer: 0
   m_Name: Toe_roll.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1832,7 +1835,7 @@ Transform:
   - {fileID: 8251031077473307499}
   m_Father: {fileID: 8251031077473330305}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30.61485, y: 0.000005198888, z: 180}
 --- !u!1 &8251031077473684559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1847,7 @@ GameObject:
   - component: {fileID: 8251031077473311171}
   m_Layer: 0
   m_Name: finger1_1.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,7 +1866,7 @@ Transform:
   - {fileID: 8251031077473287669}
   m_Father: {fileID: 8251031077473263993}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.94476, y: 33.104706, z: 30.67656}
 --- !u!1 &8251031077473685067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1878,7 @@ GameObject:
   - component: {fileID: 8251031077473338013}
   m_Layer: 0
   m_Name: finger1_2.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1894,7 +1897,7 @@ Transform:
   - {fileID: 8251031077473314573}
   m_Father: {fileID: 8251031077473305881}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -73.74238, y: 19.344275, z: -23.48158}
 --- !u!1 &8251031077473688549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1909,7 @@ GameObject:
   - component: {fileID: 8251031077473281501}
   m_Layer: 0
   m_Name: Thumb_2.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1936,7 +1939,7 @@ GameObject:
   - component: {fileID: 8251031077473314573}
   m_Layer: 0
   m_Name: finger1_2.L_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,7 +1969,7 @@ GameObject:
   - component: {fileID: 8251031077473334875}
   m_Layer: 0
   m_Name: Upper_arm.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1985,7 +1988,7 @@ Transform:
   - {fileID: 8251031077473323321}
   m_Father: {fileID: 8251031077473327451}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 78.09708, y: -28.34792, z: 59.60947}
 --- !u!1 &8251031077473689937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,7 +2000,7 @@ GameObject:
   - component: {fileID: 8251031077473333993}
   m_Layer: 0
   m_Name: Foot.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2016,7 +2019,7 @@ Transform:
   - {fileID: 8251031077473258923}
   m_Father: {fileID: 8251031077473279417}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 82.582924, y: 93.02822, z: -89.046135}
 --- !u!1 &8251031077473691481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2031,7 @@ GameObject:
   - component: {fileID: 8251031077473263401}
   m_Layer: 0
   m_Name: Vis_1_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2058,7 +2061,7 @@ GameObject:
   - component: {fileID: 8251031077473329403}
   m_Layer: 0
   m_Name: Bottom_arm.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2077,7 +2080,7 @@ Transform:
   - {fileID: 8251031077473263993}
   m_Father: {fileID: 8251031077473327595}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.5729485, y: 3.3916838, z: 32.46258}
 --- !u!1 &8251031077473692891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2092,7 @@ GameObject:
   - component: {fileID: 8251031077473229893}
   m_Layer: 0
   m_Name: jaw_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2119,7 +2122,7 @@ GameObject:
   - component: {fileID: 8251031077473285271}
   m_Layer: 0
   m_Name: Thumb_2.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2138,7 +2141,7 @@ Transform:
   - {fileID: 8251031077473341573}
   m_Father: {fileID: 8251031077473347145}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.359592, y: 100.54775, z: -62.36355}
 --- !u!1 &8251031077473695717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2153,7 @@ GameObject:
   - component: {fileID: 8251031077473232461}
   m_Layer: 0
   m_Name: spine_1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2171,7 +2174,7 @@ Transform:
   - {fileID: 8251031077473247179}
   m_Father: {fileID: 8251031077473250051}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.0003440883, y: 89.95049, z: 179.99998}
 --- !u!1 &8251031077473695937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2186,7 @@ GameObject:
   - component: {fileID: 8251031077473250051}
   m_Layer: 0
   m_Name: Hips_ctrl
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2202,7 +2205,7 @@ Transform:
   - {fileID: 8251031077473232461}
   m_Father: {fileID: 8251031077473262845}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.2806478, y: 94.371895, z: -84.33674}
 --- !u!1 &8251031077473696945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,7 +2217,7 @@ GameObject:
   - component: {fileID: 8251031077473252239}
   m_Layer: 0
   m_Name: finger2_2.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2233,7 +2236,7 @@ Transform:
   - {fileID: 8251031077473237863}
   m_Father: {fileID: 8251031077473306821}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -74.53752, y: 35.052456, z: -42.833035}
 --- !u!1 &8251031077473697051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,9 +2246,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8251031077473266531}
+  - component: {fileID: 4647222002245888076}
   m_Layer: 0
   m_Name: Hand_IK.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2264,7 +2268,20 @@ Transform:
   - {fileID: 8251031077473338109}
   m_Father: {fileID: 8251031077473262845}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.688202, y: -4.226622, z: -6.4388857}
+--- !u!65 &4647222002245888076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251031077473697051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0036618875, y: 0.008766789, z: 0.005527709}
+  m_Center: {x: 0.000030480323, y: 0.0002970996, z: -0.0018540694}
 --- !u!1 &8251031077473701151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2293,7 @@ GameObject:
   - component: {fileID: 8251031077473279111}
   m_Layer: 0
   m_Name: Thumb_2.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2295,7 +2312,7 @@ Transform:
   - {fileID: 8251031077473281501}
   m_Father: {fileID: 8251031077473337885}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -48.7485, y: 154.23218, z: -55.205456}
 --- !u!1 &8251031077473702273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,7 +2324,7 @@ GameObject:
   - component: {fileID: 8251031077473237431}
   m_Layer: 0
   m_Name: Foot_IK.R_end
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,7 +2354,7 @@ GameObject:
   - component: {fileID: 8251031077473340091}
   m_Layer: 0
   m_Name: Bottom_leg.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2356,7 +2373,7 @@ Transform:
   - {fileID: 8251031077473323163}
   m_Father: {fileID: 8251031077473247179}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 64.97951, y: -166.717, z: 19.43767}
 --- !u!1 &8251031077473705309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2385,7 @@ GameObject:
   - component: {fileID: 8251031077473347145}
   m_Layer: 0
   m_Name: Thumb_1.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2387,7 +2404,7 @@ Transform:
   - {fileID: 8251031077473285271}
   m_Father: {fileID: 8251031077473328793}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.479858, y: 21.703312, z: 67.76845}
 --- !u!1 &8251031077473705407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2416,7 @@ GameObject:
   - component: {fileID: 8251031077473287669}
   m_Layer: 0
   m_Name: finger1_2.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2418,7 +2435,7 @@ Transform:
   - {fileID: 8251031077473344269}
   m_Father: {fileID: 8251031077473311171}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.80923, y: -6.3443456, z: 10.641587}
 --- !u!1 &8251031077473706919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,7 +2447,7 @@ GameObject:
   - component: {fileID: 8251031077473282387}
   m_Layer: 0
   m_Name: Elbow_IK.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2449,7 +2466,7 @@ Transform:
   - {fileID: 8251031077473250679}
   m_Father: {fileID: 8251031077473338153}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.448474, y: 3.4270809, z: -13.496398}
 --- !u!1 &8251031077473707529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,7 +2478,7 @@ GameObject:
   - component: {fileID: 8251031077473238083}
   m_Layer: 0
   m_Name: Foot_ctrl.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2482,7 +2499,7 @@ Transform:
   - {fileID: 8251031077473338745}
   m_Father: {fileID: 8251031077473262845}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.86947, y: 0.15961474, z: -0.15955742}
 --- !u!1 &8251031077473709147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,7 +2511,7 @@ GameObject:
   - component: {fileID: 8251031077473236813}
   m_Layer: 0
   m_Name: finger2_2.R
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2513,7 +2530,7 @@ Transform:
   - {fileID: 8251031077473343673}
   m_Father: {fileID: 8251031077473242853}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 72.081085, y: -95.87176, z: -78.985664}
 --- !u!1 &8251031077473710197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2542,7 @@ GameObject:
   - component: {fileID: 8251031077473327451}
   m_Layer: 0
   m_Name: Clavicle.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2544,7 +2561,7 @@ Transform:
   - {fileID: 8251031077473334875}
   m_Father: {fileID: 8251031077473325381}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.551966, y: -44.41801, z: 72.617065}
 --- !u!1 &8251031077473711059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,7 +2573,7 @@ GameObject:
   - component: {fileID: 8251031077473279417}
   m_Layer: 0
   m_Name: Bottom_leg.L
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2575,4 +2592,4 @@ Transform:
   - {fileID: 8251031077473333993}
   m_Father: {fileID: 8251031077473247721}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 73.370285, y: 156.18022, z: -31.14094}
