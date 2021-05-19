@@ -10,22 +10,25 @@ This is my first attempt at a more open 3D game experience. The story is fairly 
 
 TO BE ADDED:
 
--Questline to get the shield
+-Questline to get the shield (Boss, other various NPC characters
 
 -Expand on sidequests, add purpose to coins
+
+-Forest Zone improvements
+
+-Spider Stuff
+
+-In game economy (linked with coins)
 
 
 TO BE CONSIDERED:
 
--In game economy (linked with coins)
-
 -Collectables that give additional HP
 
--Animations (Jump/SprintJump Variations)
 
-TO BE ADJUSTED:
+MISC RESPONSIBILITIES:
 
--Final check for Spelling/Grammar
+-Double check all Spelling/Grammar
 
 
 The code is updated faster than the posted version, but I am including all the necessary files so if you are incredibly desperate to play the most up to date version of this masterpiece nothing is truly stopping you.
